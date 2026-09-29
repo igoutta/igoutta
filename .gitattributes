@@ -1,0 +1,5 @@
+# Finales de línea LF en el repo, aunque se edite desde Windows.
+* text=auto eol=lf
+
+*.pdf   binary
+*.woff2 binary
