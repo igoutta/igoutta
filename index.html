@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gustavo Alvarado — UAS software engineer</title>
+<meta name="description" content="Software engineer building real-time computer vision, embedded Linux telemetry and Qt operator applications for unmanned aircraft. Guayaquil, Ecuador.">
+<meta name="author" content="Gustavo Alvarado">
+<meta property="og:title" content="Gustavo Alvarado — UAS software engineer">
+<meta property="og:description" content="Real-time computer vision, embedded Linux and Qt operator software for unmanned aircraft.">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --paper:#e9eced;
+  --raise:#f4f6f7;
+  --ink:#16232b;
+  --ink-2:#55666f;
+  --rule:#c3cbd0;
+  --rule-soft:#d8dee1;
+  --accent:#0c6e7d;
+  --focus:#0c6e7d;
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --display:"Archivo",var(--sans);
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --pad:clamp(1.25rem,5vw,4rem);
+  --measure:68ch;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1519; --raise:#151f25; --ink:#dce5e9; --ink-2:#8fa0a9;
+    --rule:#27343b; --rule-soft:#1d272c; --accent:#48b7c7; --focus:#48b7c7;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1519; --raise:#151f25; --ink:#dce5e9; --ink-2:#8fa0a9;
+  --rule:#27343b; --rule-soft:#1d272c; --accent:#48b7c7; --focus:#48b7c7;
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(4rem + env(safe-area-inset-top,0px));
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--paper);
+}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *{transition:none!important} }
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:400 1rem/1.62 var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;line-height:1.1}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+
+/* language switching: only ever hide, so natural display is preserved */
+[data-lang="en"] [data-l="es"],[data-lang="es"] [data-l="en"]{display:none!important}
+
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:20;
+  background:var(--ink);color:var(--paper);padding:.6rem 1rem;font-size:.85rem;
+}
+.skip:focus{left:.5rem;top:.5rem}
+
+.wrap{max-width:74rem;margin-inline:auto;padding-inline:var(--pad)}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:10;
+  background:var(--paper);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule-soft);
+}
+.bar .wrap{display:flex;align-items:center;gap:1rem;height:3.5rem}
+.mark{
+  font-family:var(--display);font-weight:600;font-size:.95rem;letter-spacing:-.01em;
+  margin-right:auto;text-decoration:none;
+}
+.mark span{color:var(--ink-2);font-weight:500}
+
+.seg{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.seg button{
+  font:500 .72rem/1 var(--mono);letter-spacing:.02em;
+  background:transparent;color:var(--ink-2);border:0;cursor:pointer;
+  padding:.45rem .55rem;transition:color .15s,background .15s;
+}
+.seg button+button{border-left:1px solid var(--rule)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.seg button:hover[aria-pressed="false"]{color:var(--ink)}
+
+.icon-btn{
+  display:grid;place-items:center;width:2rem;height:2rem;
+  background:transparent;border:1px solid var(--rule);border-radius:2px;
+  color:var(--ink-2);cursor:pointer;padding:0;transition:color .15s,border-color .15s;
+}
+.icon-btn:hover{color:var(--ink);border-color:var(--ink-2)}
+.icon-btn svg{width:1rem;height:1rem;fill:none;stroke:currentColor;stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round}
+.i-moon{display:block}
+.i-sun{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .i-moon{display:none}
+  :root:not([data-theme="light"]) .i-sun{display:block}
+}
+:root[data-theme="dark"] .i-moon{display:none}
+:root[data-theme="dark"] .i-sun{display:block}
+:root[data-theme="light"] .i-moon{display:block}
+:root[data-theme="light"] .i-sun{display:none}
+
+.cv-link{
+  font:500 .8rem/1 var(--sans);text-decoration:none;color:var(--paper);
+  background:var(--ink);padding:.55rem .8rem;border-radius:2px;white-space:nowrap;
+  transition:background .15s;
+}
+.cv-link:hover{background:var(--accent)}
+@media (max-width:34rem){
+  .cv-link .long{display:none}
+  .cv-link{padding:.55rem .7rem}
+  .bar .wrap{gap:.6rem}
+  .mark{font-size:.88rem}
+}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(3rem,9vw,6rem) clamp(2rem,4vw,3rem)}
+.hero h1{
+  font-size:clamp(2.7rem,9vw,5.25rem);
+  letter-spacing:-.035em;
+  margin-bottom:.9rem;
+}
+.role{
+  font-family:var(--display);font-weight:500;
+  font-size:clamp(1.05rem,2.6vw,1.45rem);line-height:1.32;
+  color:var(--accent);max-width:26ch;letter-spacing:-.012em;
+}
+.summary{margin-top:1.6rem;max-width:var(--measure);color:var(--ink-2)}
+.summary strong{color:var(--ink);font-weight:500}
+
+.contact{
+  display:flex;flex-wrap:wrap;gap:.35rem 1.4rem;margin-top:1.6rem;
+  font-size:.9rem;
+}
+.contact a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule);
+  padding-bottom:1px;transition:color .15s,border-color .15s}
+.contact a:hover{color:var(--accent);border-color:var(--accent)}
+.where{color:var(--ink-2);font-size:.9rem}
+
+/* ---------- readout strip ---------- */
+.readout{
+  margin:clamp(2.5rem,6vw,3.75rem) 0 0;
+  border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.readout>div{
+  padding:1.15rem 1.25rem 1.3rem;
+  border-left:1px solid var(--rule-soft);
+}
+.readout>div:first-child{border-left:0;padding-left:0}
+.readout dt{
+  font-family:var(--display);font-weight:700;letter-spacing:-.04em;
+  font-size:clamp(1.6rem,4.2vw,2.5rem);line-height:1;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.readout dd{margin:.5rem 0 0;font-size:.8rem;line-height:1.4;color:var(--ink-2);max-width:20ch}
+@media (max-width:44rem){
+  .readout{grid-template-columns:1fr 1fr}
+  .readout>div{padding:1rem .9rem}
+  .readout>div:nth-child(odd){border-left:0;padding-left:0}
+  .readout>div:nth-child(n+3){border-top:1px solid var(--rule-soft)}
+}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(2rem,4vw,3.25rem)}
+.sec-head{
+  display:flex;align-items:baseline;gap:1rem;
+  padding-bottom:.7rem;margin-bottom:2rem;border-bottom:1px solid var(--ink);
+}
+.sec-head h2{font-size:clamp(1.2rem,2.6vw,1.5rem);letter-spacing:-.02em}
+.sec-head .note{margin-left:auto;font-size:.78rem;color:var(--ink-2);text-align:right}
+
+/* ---------- experience / flight log ---------- */
+.org{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .9rem;margin-bottom:.35rem;
+}
+.org h3{font-size:1.15rem;letter-spacing:-.015em}
+.org a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)}
+.org a:hover{color:var(--accent);border-color:var(--accent)}
+.org .span{font:400 .82rem/1 var(--mono);color:var(--ink-2)}
+.org-where{font-size:.85rem;color:var(--ink-2);margin-bottom:2rem}
+
+.log{list-style:none;margin:0;padding:0 0 0 1.6rem;border-left:1px solid var(--rule)}
+.log>li{position:relative;padding-bottom:2.5rem}
+.log>li:last-child{padding-bottom:0}
+.log>li::before{
+  content:"";position:absolute;left:calc(-1.6rem - 4.5px);top:.42rem;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--paper);border:1.5px solid var(--rule);
+}
+.log>li[data-now]::before{background:var(--accent);border-color:var(--accent)}
+.log h3{font-size:1.02rem;font-weight:600;letter-spacing:-.01em}
+.log .span{
+  display:block;margin-top:.3rem;margin-bottom:.9rem;
+  font:400 .78rem/1 var(--mono);color:var(--ink-2);
+}
+.duties{list-style:none;margin:0;padding:0;display:grid;gap:.7rem;max-width:var(--measure)}
+.duties li{position:relative;padding-left:1.05rem;font-size:.945rem;color:var(--ink-2)}
+.duties li::before{
+  content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--rule);
+}
+.duties li b{font-weight:500;color:var(--ink)}
+
+/* ---------- projects ---------- */
+.projects{display:grid;gap:1px;background:var(--rule-soft);border:1px solid var(--rule-soft)}
+@media (min-width:52rem){ .projects{grid-template-columns:1fr 1fr} }
+.project{background:var(--raise);padding:1.6rem clamp(1.1rem,2.5vw,1.9rem) 1.75rem}
+.project h3{font-size:1.02rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.7rem}
+.stack{
+  font:400 .74rem/1.65 var(--mono);color:var(--accent);
+  margin-bottom:.85rem;word-spacing:.1em;
+}
+.project p{font-size:.92rem;color:var(--ink-2)}
+
+/* ---------- skills spec sheet ---------- */
+.spec{display:grid;gap:0;margin:0}
+.spec>div{
+  display:grid;grid-template-columns:minmax(9rem,15rem) 1fr;gap:.35rem 1.75rem;
+  padding:.85rem 0;border-bottom:1px solid var(--rule-soft);
+}
+.spec>div:first-child{border-top:1px solid var(--rule-soft)}
+.spec dt{font-weight:500;font-size:.92rem}
+.spec dd{margin:0;font:400 .84rem/1.6 var(--mono);color:var(--ink-2)}
+@media (max-width:40rem){ .spec>div{grid-template-columns:1fr} }
+
+/* ---------- closing grid ---------- */
+.cols{display:grid;gap:2.5rem clamp(2rem,5vw,4rem)}
+@media (min-width:52rem){ .cols{grid-template-columns:1.5fr 1fr} }
+.entry{margin-bottom:1.6rem;max-width:var(--measure)}
+.entry:last-child{margin-bottom:0}
+.entry h3{font-size:1rem;font-weight:600;margin-bottom:.25rem}
+.entry-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:.25rem}
+.entry-head h3{margin-bottom:0}
+.yr{margin-left:auto;flex:none;font:400 .78rem/1 var(--mono);color:var(--ink-2)}
+.entry .span{font:400 .85rem/1.5 var(--sans);color:var(--ink-2)}
+.entry ul{margin:.6rem 0 0;padding-left:1.05rem;font-size:.9rem;color:var(--ink-2)}
+.entry li{margin-bottom:.25rem}
+.pair{display:flex;gap:.6rem;font-size:.93rem;margin-bottom:.4rem}
+.pair dt{font-weight:500;min-width:6.5rem}
+.pair dd{margin:0;color:var(--ink-2)}
+.quiet{font-size:.9rem;color:var(--ink-2);max-width:var(--measure)}
+
+/* ---------- footer ---------- */
+footer{padding-block:0 3.5rem;margin-top:1.5rem}
+.foot-line{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:baseline;border-top:1px solid var(--ink);padding-top:2.25rem}
+footer .colophon{margin-top:1.5rem;font-size:.78rem;color:var(--ink-2)}
+footer a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule)}
+footer a:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ---------- print ---------- */
+@media print{
+  :root{--paper:#fff;--raise:#fff;--ink:#000;--ink-2:#333;--rule:#999;--rule-soft:#ccc;--accent:#000}
+  .bar,.skip,footer .colophon{display:none}
+  body{font-size:10.5pt}
+  section{padding-block:.6rem}
+  .hero{padding-block:0 1rem}
+  .log>li,.project,.entry{break-inside:avoid}
+  .projects{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main" data-l="en">Skip to content</a>
+<a class="skip" href="#main" data-l="es">Saltar al contenido</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#main">Gustavo Alvarado</a>
+
+    <div class="seg" role="group" aria-label="Language / Idioma">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+    </div>
+
+    <button type="button" class="icon-btn" id="theme-btn" aria-label="Switch theme">
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/></svg>
+    </button>
+
+    <a class="cv-link" data-l="en" href="assets/Gustavo-Alvarado-CV-EN.pdf" download><span class="long">Download </span>CV</a>
+    <a class="cv-link" data-l="es" href="assets/Gustavo-Alvarado-CV-ES.pdf" download><span class="long">Descargar </span>CV</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero wrap">
+    <h1>Gustavo Alvarado</h1>
+
+    <p class="role" data-l="en">Real-time computer vision, embedded Linux and Qt operator software for unmanned aircraft.</p>
+    <p class="role" data-l="es">Visión artificial en tiempo real, Linux embebido y software de operador en Qt para aeronaves no tripuladas.</p>
+
+    <p class="summary" data-l="en">Four years building production systems for unmanned aerial vehicles at <strong>Robiotec Ecuador</strong>, from the inference path on a Jetson to the operator application on the ground. I take a system end to end: architecture, implementation, and deployment onto hardware that has real timing and power budgets. Mechatronics engineer from ESPOL, with field experience and a DGAC remote-pilot certificate.</p>
+    <p class="summary" data-l="es">Cuatro años construyendo sistemas en producción para vehículos aéreos no tripulados en <strong>Robiotec Ecuador</strong>, desde la ruta de inferencia sobre un Jetson hasta la aplicación de operador en tierra. Trabajo el sistema completo: arquitectura, implementación y despliegue sobre hardware con límites reales de tiempo y de energía. Ingeniero mecatrónico de la ESPOL, con experiencia en campo y certificado de piloto a distancia de la DGAC.</p>
+
+    <div class="contact">
+      <span class="where">Guayaquil, Ecuador</span>
+      <a href="mailto:igoutta@protonmail.com">igoutta@protonmail.com</a>
+      <a href="https://github.com/igoutta" rel="me noopener">github.com/igoutta</a>
+      <a href="https://www.linkedin.com/in/igoutta/" rel="me noopener">linkedin.com/in/igoutta</a>
+    </div>
+
+    <dl class="readout">
+      <div>
+        <dt>4</dt>
+        <dd data-l="en">years on unmanned aircraft software</dd>
+        <dd data-l="es">años de software para aeronaves no tripuladas</dd>
+      </div>
+      <div>
+        <dt>93 km</dt>
+        <dd data-l="en">unsupervised point-to-point VTOL mission</dd>
+        <dd data-l="es">misión VTOL punto a punto no supervisada</dd>
+      </div>
+      <div>
+        <dt>500k+</dt>
+        <dd data-l="en">telemetry records in the flight-log pipeline</dd>
+        <dd data-l="es">registros en el pipeline de análisis de vuelo</dd>
+      </div>
+      <div>
+        <dt>DGAC</dt>
+        <dd data-l="en">certified remote pilot, multirotor VLOS</dd>
+        <dd data-l="es">piloto a distancia certificado, multirrotor VLOS</dd>
+      </div>
+    </dl>
+  </div>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="wrap" id="experience">
+    <div class="sec-head">
+      <h2 data-l="en">Experience</h2>
+      <h2 data-l="es">Experiencia</h2>
+      <span class="note" data-l="en">One company, three roles</span>
+      <span class="note" data-l="es">Una empresa, tres cargos</span>
+    </div>
+
+    <div class="org">
+      <h3><a href="https://robiotec.ec/" rel="noopener">Robiotec Ecuador S.A.</a></h3>
+      <span class="span" data-l="en">Oct 2022 &ndash; Present</span>
+      <span class="span" data-l="es">Oct 2022 &ndash; Presente</span>
+    </div>
+    <p class="org-where" data-l="en">Drone and software development, Guayaquil, Ecuador.</p>
+    <p class="org-where" data-l="es">Desarrollo de drones y software, Guayaquil, Ecuador.</p>
+
+    <ol class="log">
+
+      <!-- role 1 -->
+      <li data-now>
+        <h3 data-l="en">R&amp;D Engineer, UAS &amp; embedded systems</h3>
+        <h3 data-l="es">Ingeniero de I+D, especialista en drones</h3>
+        <span class="span" data-l="en">Apr 2024 &ndash; Present</span>
+        <span class="span" data-l="es">Abr 2024 &ndash; Presente</span>
+
+        <ul class="duties" data-l="en">
+          <li><b>Sole architect and developer of a defence-grade operator application</b> for a high-end surveillance camera (Python, PyQt6): full camera control through the vendor SDK driven by professional joysticks, live video client, configuration and deployment. Rebuilt the video front end around accelerated playback libraries, cutting client-side buffering on a 1080p feed served remotely over a satellite link.</li>
+          <li><b>Took a YOLOv8 mineral-detection system from prototype to production on NVIDIA Jetson:</b> reworked real-time scheduling and actuator triggering, converted inference to TensorRT and provisioned a low-latency kernel so detection lands inside the actuator's timing window.</li>
+          <li><b>Redesigned and rewrote the onboard telemetry service</b> running on Raspberry Pi under embedded GNU/Linux (Python, SurrealDB), prioritising critical parameters over the flight-controller link with a scalable local store.</li>
+          <li>Designed the end-to-end architecture of a satellite-linked UAS control system integrating a high-end surveillance payload.</li>
+          <li>Built a flight-log analytics pipeline over 500k+ telemetry records (Polars, Plotly, marimo) quantifying power draw per flight phase, with sub-second queries replacing a pandas/Matplotlib/Jupyter workflow.</li>
+          <li>Adapted ArduPilot control loops to a custom 3D-printed flight controller and new sensor set for a fixed-wing glider, and scripted hexacopter flight logic in Lua.</li>
+          <li>Rebranded an open-source UAS control suite for corporate deployment (C++/Qt, Docker, Bash) under full licence compliance.</li>
+          <li>Pilot in command for VTOL fixed-wing operations: route planning, calibration and mission configuration.</li>
+          <li>Maintained the 3D-printing equipment and designed work fixtures and accessories in Autodesk Fusion.</li>
+        </ul>
+
+        <ul class="duties" data-l="es">
+          <li><b>Único arquitecto y desarrollador de la aplicación de operador</b> de una cámara de vigilancia de alta gama para uso militar (Python, PyQt6): control completo de la cámara mediante el SDK del fabricante y joysticks profesionales, cliente de video en vivo, configuración y despliegue. Reconstruí el front-end de video con librerías de reproducción avanzadas, reduciendo el buffering del lado del cliente sobre un stream 1080p servido de forma remota por enlace satelital.</li>
+          <li><b>Llevé a producción sobre NVIDIA Jetson un sistema de detección de recursos minerales con YOLOv8:</b> reorganicé la gestión en tiempo real y la activación de salidas, migré la inferencia a TensorRT e implementé un kernel de baja latencia para que la detección entre dentro de la ventana de tiempo de los actuadores.</li>
+          <li><b>Rediseñé y reescribí el sistema embebido de recolección de telemetría prioritaria</b> sobre Raspberry Pi en GNU/Linux (Python, SurrealDB), con almacenamiento local escalable y comunicación directa con el controlador de vuelo.</li>
+          <li>Definí la arquitectura completa de un sistema de control de UAS con enlace satelital e integración de carga útil de vigilancia de alta gama.</li>
+          <li>Construí un pipeline de análisis de registros de vuelo sobre 500 000+ registros de telemetría (Polars, Plotly, marimo) que cuantifica el consumo energético por fase de vuelo, con consultas por debajo del segundo, en reemplazo del stack pandas/Matplotlib/Jupyter.</li>
+          <li>Adapté el control automático de ArduPilot a una nueva controladora de vuelo impresa en 3D y a nuevos componentes de medición para un dron planeador de ala fija; programé la lógica de vuelo de un hexacóptero en Lua.</li>
+          <li>Realicé el rebranding corporativo de un software de código abierto para control de UAS (C++/Qt, Docker, Bash), garantizando el cumplimiento de las licencias.</li>
+          <li>Piloto al mando en operaciones con drones VTOL de ala fija: calibración, planificación y configuración de rutas de vuelo.</li>
+          <li>Mantenimiento del equipo de impresión 3D y diseño de soportes y accesorios de trabajo en Autodesk Fusion.</li>
+        </ul>
+      </li>
+
+      <!-- role 2 -->
+      <li>
+        <h3 data-l="en">R&amp;D Lab Assistant</h3>
+        <h3 data-l="es">Asistente de laboratorio de I+D</h3>
+        <span class="span" data-l="en">Apr 2023 &ndash; Mar 2024</span>
+        <span class="span" data-l="es">Abr 2023 &ndash; Mar 2024</span>
+
+        <ul class="duties" data-l="en">
+          <li><b>Enabled a 93 km unsupervised point-to-point VTOL mission:</b> GNSS/GPS integration, radio-link revision and geolocation-software updates, validated in flight, payload and comms testing.</li>
+          <li>Wrote the Python integration layer between the MAVLink protocol and a partner vendor's power-supply system.</li>
+          <li>Built the backend of a power-monitoring system for industrial mills over Modbus TCP (Node-RED/JavaScript on Linux).</li>
+          <li>Researched and built the link between radio control and propulsion for an aquatic drone (Arduino C).</li>
+          <li>Ran CFD simulations (Autodesk Inventor) on a tandem-wing drone airframe.</li>
+          <li>Provisioned and supported Linux environments for computer-vision projects.</li>
+        </ul>
+
+        <ul class="duties" data-l="es">
+          <li><b>Habilité una misión no supervisada de 93 km punto a punto con dron VTOL de ala fija:</b> integración GNSS-GPS, revisión del enlace de radio y actualización del software de geolocalización, con resultados positivos en pruebas de vuelo, carga y comunicación.</li>
+          <li>Desarrollé en Python la capa de comunicación entre el protocolo MAVLink y el sistema de suministro eléctrico de una empresa aliada.</li>
+          <li>Construí el back-end de un sistema de monitoreo energético para molinos industriales sobre Modbus TCP (Node-RED/JavaScript en Linux).</li>
+          <li>Investigación y desarrollo del sistema de comunicación entre radiocontrol y propulsión para un dron acuático (Arduino C).</li>
+          <li>Ejecuté simulaciones CFD en Autodesk Inventor sobre un diseño de alas en tándem para dron.</li>
+          <li>Instalación y consultoría de sistemas Linux para proyectos de visión artificial.</li>
+        </ul>
+      </li>
+
+      <!-- role 3 -->
+      <li>
+        <h3 data-l="en">R&amp;D Lab Intern</h3>
+        <h3 data-l="es">Pasante de laboratorio de I+D</h3>
+        <span class="span" data-l="en">Oct 2022 &ndash; Mar 2023</span>
+        <span class="span" data-l="es">Oct 2022 &ndash; Mar 2023</span>
+
+        <ul class="duties" data-l="en">
+          <li>Built the backend of a satellite geolocation service consuming Iridium SBD messages through a webhook, persisted in SQLite (Node-RED/JavaScript).</li>
+          <li>Shipped a Qt5/Python colour-picker front end feeding region selections into a computer-vision colour-recognition service.</li>
+          <li>Configured ArduPilot flight control for electric VTOL fixed-wing and high-payload aquatic platforms.</li>
+        </ul>
+
+        <ul class="duties" data-l="es">
+          <li>Desarrollé el back-end de un software de geolocalización satelital que consume mensajes Iridium SBD vía webhook, con persistencia en SQLite (Node-RED/JavaScript).</li>
+          <li>Implementé en Qt5/Python un selector visual de color por áreas de imagen, conectado al software de reconocimiento cromático.</li>
+          <li>Configuré el control de vuelo en ArduPilot para drones VTOL de ala fija eléctricos y para plataformas acuáticas de alta capacidad de carga.</li>
+        </ul>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="wrap" id="projects">
+    <div class="sec-head">
+      <h2 data-l="en">Selected work</h2>
+      <h2 data-l="es">Trabajos destacados</h2>
+    </div>
+
+    <div class="projects">
+      <article class="project">
+        <h3 data-l="en">Low-latency AI inference pipeline</h3>
+        <h3 data-l="es">Proceso de IA de baja latencia</h3>
+        <p class="stack">Python · YOLOv8 · TensorRT · CUDA · NVIDIA Jetson · Linux RT · uv</p>
+        <p data-l="en">Production inference path for real-time mineral detection on NVIDIA Jetson: TensorRT conversion, low-latency kernel provisioning and a redesigned real-time scheduling model that drives physical actuators within their timing window.</p>
+        <p data-l="es">Ruta de inferencia en producción para detección de minerales en tiempo real sobre NVIDIA Jetson: conversión a TensorRT, kernel de baja latencia y rediseño del modelo de planificación que activa los actuadores dentro de su ventana de tiempo.</p>
+      </article>
+
+      <article class="project">
+        <h3 data-l="en">Camera control and video client</h3>
+        <h3 data-l="es">Control y visualización de cámara</h3>
+        <p class="stack">Python · PyQt6 · vendor SDK · joystick HID · satellite link</p>
+        <p data-l="en">Complete operator application for a high-end surveillance camera, built solo: camera control via the vendor SDK over professional joysticks, live video client, configuration and deployment. Video front end rebuilt around accelerated playback libraries to minimise client-side buffering on a 1080p feed delivered over a satellite link.</p>
+        <p data-l="es">Aplicación completa de operador para cámara de vigilancia de alta gama, desarrollada en solitario: control de cámara vía SDK del fabricante con joysticks profesionales, cliente de video en vivo, configuración y despliegue. Front-end de video reconstruido sobre librerías de reproducción avanzadas para minimizar el buffering del lado del cliente en un stream 1080p entregado por enlace satelital.</p>
+      </article>
+
+      <article class="project">
+        <h3 data-l="en">Flight-log analytics dashboard</h3>
+        <h3 data-l="es">Panel de análisis de registros de vuelo</h3>
+        <p class="stack">Python · Polars · Plotly · marimo · uv</p>
+        <p data-l="en">Interactive dashboard over 500k+ telemetry records visualising voltage, current and energy consumption across drone flight phases, with sub-second query performance.</p>
+        <p data-l="es">Panel interactivo que procesa 500 000+ registros de telemetría para visualizar voltaje, corriente y consumo energético en todas las fases de vuelo, con rendimiento de consulta inferior a un segundo.</p>
+      </article>
+
+      <article class="project">
+        <h3 data-l="en">Satellite geolocation backend</h3>
+        <h3 data-l="es">Back-end de geolocalización satelital</h3>
+        <p class="stack">Node-RED · JavaScript · SQLite · Iridium SBD · Git</p>
+        <p data-l="en">Position-tracking service for long-range drones built on satellite Short Burst Data, with spatial querying and local persistence.</p>
+        <p data-l="es">Sistema de seguimiento de ubicación para drones de largo alcance a partir de datos satelitales Short Burst Data, con consultas espaciales y persistencia local.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="wrap" id="skills">
+    <div class="sec-head">
+      <h2 data-l="en">Technical skills</h2>
+      <h2 data-l="es">Competencias técnicas</h2>
+    </div>
+
+    <dl class="spec">
+      <div>
+        <dt data-l="en">Languages</dt><dt data-l="es">Lenguajes</dt>
+        <dd>Python, C/C++ (embedded &amp; Qt), JavaScript, Lua, SQL, Bash</dd>
+      </div>
+      <div>
+        <dt data-l="en">ML and computer vision</dt><dt data-l="es">IA y visión artificial</dt>
+        <dd>PyTorch, Ultralytics YOLOv8, TensorRT, CUDA, OpenCV, Pylon (Basler)</dd>
+      </div>
+      <div>
+        <dt data-l="en">Robotics</dt><dt data-l="es">Robótica</dt>
+        <dd>ROS / ROS 2, NVIDIA Jetson AGX Orin, MAVLink</dd>
+      </div>
+      <div>
+        <dt data-l="en">Data</dt><dt data-l="es">Datos</dt>
+        <dd>Polars, pandas, NumPy, Plotly, Matplotlib/Seaborn, marimo, Jupyter</dd>
+      </div>
+      <div>
+        <dt data-l="en">Applications and UI</dt><dt data-l="es">Aplicaciones e interfaces</dt>
+        <dd>PyQt6 / PyQt5, Qt (C++)</dd>
+      </div>
+      <div>
+        <dt data-l="en">Embedded and systems</dt><dt data-l="es">Sistemas embebidos</dt>
+        <dd>GNU/Linux (Ubuntu, Arch, NixOS), low-latency kernels, Raspberry Pi, Orange Pi, ESP32 / ESP-IDF, Teensy, Arduino, Modbus TCP, Node-RED</dd>
+      </div>
+      <div>
+        <dt data-l="en">Data stores</dt><dt data-l="es">Bases de datos</dt>
+        <dd>SQLite, SurrealDB</dd>
+      </div>
+      <div>
+        <dt data-l="en">Tooling and infrastructure</dt><dt data-l="es">Herramientas e infraestructura</dt>
+        <dd>Git, Docker, Podman, Proxmox, uv</dd>
+      </div>
+      <div>
+        <dt data-l="en">Unmanned systems</dt><dt data-l="es">Sistemas no tripulados</dt>
+        <dd data-l="en">ArduPilot, Betaflight, mission planning, VTOL fixed-wing &amp; multirotor operations</dd>
+        <dd data-l="es">ArduPilot, Betaflight, planificación de misiones, operación de VTOL de ala fija y multirrotores</dd>
+      </div>
+      <div>
+        <dt data-l="en">CAD and simulation</dt><dt data-l="es">Diseño mecánico y simulación</dt>
+        <dd>Autodesk Fusion, Inventor, Inventor CFD, AutoCAD, MATLAB, Proteus, MPLAB X</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ============ EDUCATION / LANGUAGES / REFERENCES ============ -->
+  <section class="wrap" id="background">
+    <div class="sec-head">
+      <h2 data-l="en">Education and certification</h2>
+      <h2 data-l="es">Formación y certificaciones</h2>
+    </div>
+
+    <div class="cols">
+      <div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3 data-l="en">B.Eng. in Mechatronics Engineering</h3>
+            <h3 data-l="es">Ingeniería en Mecatrónica</h3>
+            <span class="yr">2023</span>
+          </div>
+          <p class="span">Escuela Superior Politécnica del Litoral (ESPOL), Guayaquil</p>
+          <ul data-l="en">
+            <li>Teaching assistant, Introduction to Data Science and Programming Fundamentals.</li>
+            <li>Participant, Pyweeknd hackathon.</li>
+          </ul>
+          <ul data-l="es">
+            <li>Ayudante de docencia, Introducción a la Ciencia de Datos y Fundamentos de Programación.</li>
+            <li>Participante, hackathon Pyweeknd.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 data-l="en">Remote pilot certificate, multirotor VLOS</h3>
+            <h3 data-l="es">Certificado de piloto a distancia, multirrotor VLOS</h3>
+            <span class="yr">2025</span>
+          </div>
+          <p class="span" data-l="en">Aeronaut Systems, endorsed by DGAC Ecuador</p>
+          <p class="span" data-l="es">Aeronaut Systems, avalado por la DGAC Ecuador</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="entry">
+          <h3 data-l="en">Languages</h3>
+          <h3 data-l="es">Idiomas</h3>
+          <dl style="margin:.6rem 0 0">
+            <div class="pair">
+              <dt data-l="en">Spanish</dt><dt data-l="es">Español</dt>
+              <dd data-l="en">Native</dd><dd data-l="es">Nativo</dd>
+            </div>
+            <div class="pair">
+              <dt data-l="en">English</dt><dt data-l="es">Inglés</dt>
+              <dd data-l="en">B2, professional working proficiency</dd>
+              <dd data-l="es">B2, dominio profesional</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="entry">
+          <h3 data-l="en">References</h3>
+          <h3 data-l="es">Referencias</h3>
+          <p class="quiet" data-l="en">Available on request. Email me and I will put you in touch with previous managers and collaborators.</p>
+          <p class="quiet" data-l="es">Disponibles a solicitud. Escríbeme y te pongo en contacto con jefes y colaboradores anteriores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="foot-line">
+    <a href="mailto:igoutta@protonmail.com">igoutta@protonmail.com</a>
+    <a href="https://github.com/igoutta" rel="me noopener">github.com/igoutta</a>
+    <a href="https://www.linkedin.com/in/igoutta/" rel="me noopener">linkedin.com/in/igoutta</a>
+    <a data-l="en" href="assets/Gustavo-Alvarado-CV-EN.pdf" download>Download CV (PDF)</a>
+    <a data-l="es" href="assets/Gustavo-Alvarado-CV-ES.pdf" download>Descargar CV (PDF)</a>
+  </div>
+  <p class="colophon" data-l="en">Built with plain HTML and CSS. Set in Archivo and IBM Plex. <a href="https://github.com/igoutta/igoutta">Source</a>.</p>
+  <p class="colophon" data-l="es">Hecho con HTML y CSS. Compuesto en Archivo e IBM Plex. <a href="https://github.com/igoutta/igoutta">Código</a>.</p>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* ---- theme ---- */
+  var storedTheme = null;
+  try { storedTheme = localStorage.getItem("theme"); } catch (e) {}
+  if (storedTheme === "light" || storedTheme === "dark") root.setAttribute("data-theme", storedTheme);
+
+  document.getElementById("theme-btn").addEventListener("click", function () {
+    var dark = root.getAttribute("data-theme") === "dark" ||
+      (!root.hasAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
+  /* ---- language ---- */
+  var buttons = document.querySelectorAll("[data-set-lang]");
+
+  function setLang(lang, persist) {
+    root.setAttribute("data-lang", lang);
+    root.setAttribute("lang", lang);
+    document.title = lang === "es"
+      ? "Gustavo Alvarado — Ingeniero de software para UAS"
+      : "Gustavo Alvarado — UAS software engineer";
+    buttons.forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.setLang === lang));
+    });
+    if (persist) { try { localStorage.setItem("lang", lang); } catch (e) {} }
+  }
+
+  var storedLang = null;
+  try { storedLang = localStorage.getItem("lang"); } catch (e) {}
+  if (storedLang === "en" || storedLang === "es") {
+    setLang(storedLang, false);
+  } else if ((navigator.language || "").toLowerCase().indexOf("es") === 0) {
+    setLang("es", false);
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.dataset.setLang, true); });
+  });
+})();
+</script>
+
+</body>
+</html>
