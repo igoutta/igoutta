@@ -251,6 +251,8 @@ section{padding-block:clamp(2rem,4vw,3.25rem)}
 /* ---------- closing grid ---------- */
 .cols{display:grid;gap:2.5rem clamp(2rem,5vw,4rem)}
 @media (min-width:52rem){ .cols{grid-template-columns:1.5fr 1fr} }
+.halves{row-gap:0}
+@media (min-width:52rem){ .halves{grid-template-columns:1fr 1fr} }
 .entry{margin-bottom:1.6rem;max-width:var(--measure)}
 .entry:last-child{margin-bottom:0}
 .entry h3{font-size:1rem;font-weight:600;margin-bottom:.25rem}
@@ -502,10 +504,11 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
     <dl class="spec">
       <div>
         <dt data-l="en">Languages</dt><dt data-l="es">Lenguajes</dt>
-        <dd>Python, C/C++ (embedded &amp; Qt), JavaScript, Lua, SQL, Bash</dd>
+        <dd data-l="en">Python, C/C++ (embedded &amp; Qt), JavaScript, Lua, SQL, Bash</dd>
+        <dd data-l="es">Python, C/C++ (embebido y Qt), JavaScript, Lua, SQL, Bash</dd>
       </div>
       <div>
-        <dt data-l="en">ML and computer vision</dt><dt data-l="es">IA y visión artificial</dt>
+        <dt data-l="en">Machine learning and computer vision</dt><dt data-l="es">Aprendizaje automático y visión artificial</dt>
         <dd>PyTorch, Ultralytics YOLOv8, TensorRT, CUDA, OpenCV, Pylon (Basler)</dd>
       </div>
       <div>
@@ -521,8 +524,9 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
         <dd>PyQt6 / PyQt5, Qt (C++)</dd>
       </div>
       <div>
-        <dt data-l="en">Embedded and systems</dt><dt data-l="es">Sistemas embebidos</dt>
-        <dd>GNU/Linux (Ubuntu, Arch, NixOS), low-latency kernels, Raspberry Pi, Orange Pi, ESP32 / ESP-IDF, Teensy, Arduino, Modbus TCP, Node-RED</dd>
+        <dt data-l="en">Embedded systems</dt><dt data-l="es">Sistemas embebidos</dt>
+        <dd data-l="en">GNU/Linux (Ubuntu, Arch, NixOS), low-latency kernels, Raspberry Pi, Orange Pi, ESP32 / ESP-IDF, Teensy, Arduino, MAVLink, Modbus TCP, Node-RED</dd>
+        <dd data-l="es">GNU/Linux (Ubuntu, Arch, NixOS), kernels de baja latencia, Raspberry Pi, Orange Pi, ESP32 / ESP-IDF, Teensy, Arduino, MAVLink, Modbus TCP, Node-RED</dd>
       </div>
       <div>
         <dt data-l="en">Data stores</dt><dt data-l="es">Bases de datos</dt>
@@ -533,80 +537,83 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
         <dd>Git, Docker, Podman, Proxmox, uv</dd>
       </div>
       <div>
-        <dt data-l="en">Unmanned systems</dt><dt data-l="es">Sistemas no tripulados</dt>
-        <dd data-l="en">ArduPilot, Betaflight, mission planning, VTOL fixed-wing &amp; multirotor operations</dd>
+        <dt>UAS</dt>
+        <dd data-l="en">ArduPilot, Betaflight, mission planning, fixed-wing VTOL &amp; multirotor operations</dd>
         <dd data-l="es">ArduPilot, Betaflight, planificación de misiones, operación de VTOL de ala fija y multirrotores</dd>
       </div>
       <div>
-        <dt data-l="en">CAD and simulation</dt><dt data-l="es">Diseño mecánico y simulación</dt>
+        <dt data-l="en">CAD and simulation</dt><dt data-l="es">CAD y simulación</dt>
         <dd>Autodesk Fusion, Inventor, Inventor CFD, AutoCAD, MATLAB, Proteus, MPLAB X</dd>
       </div>
     </dl>
   </section>
 
-  <!-- ============ EDUCATION / LANGUAGES / REFERENCES ============ -->
-  <section class="wrap" id="background">
+  <!-- ============ EDUCATION ============ -->
+  <section class="wrap" id="education">
     <div class="sec-head">
-      <h2 data-l="en">Education and certification</h2>
+      <h2 data-l="en">Education and certifications</h2>
       <h2 data-l="es">Formación y certificaciones</h2>
     </div>
 
     <div class="cols">
-      <div>
-        <div class="entry">
-          <div class="entry-head">
-            <h3 data-l="en">B.Eng. in Mechatronics Engineering</h3>
-            <h3 data-l="es">Ingeniería en Mecatrónica</h3>
-            <span class="yr">2023</span>
-          </div>
-          <p class="span">Escuela Superior Politécnica del Litoral (ESPOL), Guayaquil</p>
-          <ul data-l="en">
-            <li>Teaching assistant, Introduction to Data Science and Programming Fundamentals.</li>
-            <li>Participant, Pyweeknd hackathon.</li>
-          </ul>
-          <ul data-l="es">
-            <li>Ayudante de docencia, Introducción a la Ciencia de Datos y Fundamentos de Programación.</li>
-            <li>Participante, hackathon Pyweeknd.</li>
-          </ul>
+      <div class="entry">
+        <div class="entry-head">
+          <h3 data-l="en">B.Eng. in Mechatronics Engineering</h3>
+          <h3 data-l="es">Ingeniería en Mecatrónica</h3>
+          <span class="yr">2023</span>
         </div>
-
-        <div class="entry">
-          <div class="entry-head">
-            <h3 data-l="en">Remote pilot certificate, multirotor VLOS</h3>
-            <h3 data-l="es">Certificado de piloto a distancia, multirrotor VLOS</h3>
-            <span class="yr">2025</span>
-          </div>
-          <p class="span" data-l="en">Aeronaut Systems, endorsed by DGAC Ecuador</p>
-          <p class="span" data-l="es">Aeronaut Systems, avalado por la DGAC Ecuador</p>
-        </div>
+        <p class="span">Escuela Superior Politécnica del Litoral (ESPOL), Guayaquil, Ecuador</p>
+        <ul data-l="en">
+          <li>Teaching assistant, Introduction to Data Science and Programming Fundamentals.</li>
+          <li>Participant, Pyweeknd hackathon.</li>
+        </ul>
+        <ul data-l="es">
+          <li>Ayudante de docencia, Introducción a la Ciencia de Datos y Fundamentos de Programación.</li>
+          <li>Participante, hackathon Pyweeknd.</li>
+        </ul>
       </div>
 
-      <div>
-        <div class="entry">
-          <h3 data-l="en">Languages</h3>
-          <h3 data-l="es">Idiomas</h3>
-          <dl style="margin:.6rem 0 0">
-            <div class="pair">
-              <dt data-l="en">Spanish</dt><dt data-l="es">Español</dt>
-              <dd data-l="en">Native</dd><dd data-l="es">Nativo</dd>
-            </div>
-            <div class="pair">
-              <dt data-l="en">English</dt><dt data-l="es">Inglés</dt>
-              <dd data-l="en">B2, professional working proficiency</dd>
-              <dd data-l="es">B2, dominio profesional</dd>
-            </div>
-          </dl>
+      <div class="entry">
+        <div class="entry-head">
+          <h3 data-l="en">Remote pilot certificate, multirotor VLOS</h3>
+          <h3 data-l="es">Certificado de piloto a distancia, multirrotor VLOS</h3>
+          <span class="yr">2025</span>
         </div>
-
-        <div class="entry">
-          <h3 data-l="en">References</h3>
-          <h3 data-l="es">Referencias</h3>
-          <p class="quiet" data-l="en">Available on request. Email me and I will put you in touch with previous managers and collaborators.</p>
-          <p class="quiet" data-l="es">Disponibles a solicitud. Escríbeme y te pongo en contacto con jefes y colaboradores anteriores.</p>
-        </div>
+        <p class="span" data-l="en">Aeronaut Systems, endorsed by DGAC Ecuador — Guayaquil, Ecuador</p>
+        <p class="span" data-l="es">Aeronaut Systems, avalado por la DGAC — Guayaquil, Ecuador</p>
       </div>
     </div>
   </section>
+
+  <!-- ============ LANGUAGES / REFERENCES ============ -->
+  <div class="wrap cols halves">
+    <section id="languages">
+      <div class="sec-head">
+        <h2 data-l="en">Languages</h2>
+        <h2 data-l="es">Idiomas</h2>
+      </div>
+      <dl>
+        <div class="pair">
+          <dt data-l="en">Spanish</dt><dt data-l="es">Español</dt>
+          <dd data-l="en">Native</dd><dd data-l="es">Nativo</dd>
+        </div>
+        <div class="pair">
+          <dt data-l="en">English</dt><dt data-l="es">Inglés</dt>
+          <dd data-l="en">B2, professional working proficiency</dd>
+          <dd data-l="es">B2, dominio profesional del idioma</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="references">
+      <div class="sec-head">
+        <h2 data-l="en">References</h2>
+        <h2 data-l="es">Referencias</h2>
+      </div>
+      <p class="quiet" data-l="en">Available on request.</p>
+      <p class="quiet" data-l="es">Disponibles a solicitud.</p>
+    </section>
+  </div>
 
 </main>
 
