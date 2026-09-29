@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/img/logo-dark.svg">
+  <img src="assets/img/logo-light.svg" alt="GA monogram" width="220">
+</picture>
+
 # Gustavo Alvarado
 
 R&D Engineer — Unmanned Aerial Systems, Embedded Systems & Computer Vision. Guayaquil, Ecuador.

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- Monograma "GA". Dibujado en ASCII en el editor de Svgbob
+       (https://ivanceras.github.io/svgbob-editor/) y convertido a SVG con Svgbob
+       (https://github.com/ivanceras/svgbob). Fuente ASCII: assets/art/SVGBOB-GA.
+       Copia de logo.svg con color fijo para fondo oscuro (README de GitHub). -->
+  <title>GA</title>
+  <style>
+    path, rect, circle { fill: none; stroke: #dce5e9; stroke-width: 1.25; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: miter; }
+    circle { fill: #dce5e9; stroke-width: 1.5; }
+  </style>
+  <rect x="364" y="184" width="16" height="16"/>
+  <circle cx="284" cy="75" r=".5"/>
+  <circle cx="292" cy="75" r=".5"/>
+  <circle cx="300" cy="75" r=".5"/>
+  <circle cx="308" cy="75" r=".5"/>
+  <circle cx="316" cy="75" r=".5"/>
+  <circle cx="324" cy="75" r=".5"/>
+  <circle cx="332" cy="75" r=".5"/>
+  <circle cx="340" cy="75" r=".5"/>
+  <circle cx="348" cy="75" r=".5"/>
+  <circle cx="292" cy="91" r=".5"/>
+  <circle cx="300" cy="91" r=".5"/>
+  <circle cx="308" cy="91" r=".5"/>
+  <circle cx="316" cy="91" r=".5"/>
+  <circle cx="324" cy="91" r=".5"/>
+  <circle cx="332" cy="91" r=".5"/>
+  <circle cx="340" cy="91" r=".5"/>
+  <circle cx="348" cy="91" r=".5"/>
+  <circle cx="356" cy="91" r=".5"/>
+  <path d="M96 16h232M96 16 84 40m68-24 8 8m0 0h112m8-8-8 8m56-8 48 96M84 40v16m0 0L72 80m-8 0h8m-8 0-48 96m-8 0h8m-8 0-8 16m0 0 8 16M152 80h40m8-8-8 8m8-8h24m0 0 8 8m0 0h40m-120 0-24 48m144-48 16 32m0 0h72m8-16-8 16m-240 16h8m176-16 8 16m0 0h56m8-16-8 16m-248 0-4 8m0 0v16m0 0-20 40m0 0 24 48m0 0h8m0 0 12 24m0 0v16m0 0 12 24m0 0h72m0 0 8 8M164 88h76m-76 0-12 24m96-32-8 8m-104 24h16M48 144h16m-16 0-32 64m48-64-40 80m8-48 8 16M8 208h8m8 16 64 128m0 0 8 16m0 0h96m0 0 8 8m0 0h104m-24-216h120m0 0 16 32m0 0-24 48m-8 0h8m-8 0-20 40m0 0v16m0 0-36 72m-16 0h16m-16 0-8 8m-56-200h24m8-16-8 16m-24 0-8 16m0 0 8 16m0 0h24m0 0 8 16m0 0h16m0 0 8 16m0 0h16m-16 0-20 40m0 0h8m0 0-16 32m-44 0h44m28-136h32m8-16-8 16m-32 0-8 16m0 0 8 16m0 0h16m0 0 8 16m0 0-8 16"/>
+  <path d="M88 208a16 16 0 0 0 0 16"/>
+  <path d="m88 208 40 80m-40-64 40 80"/>
+  <path d="M128 288a16 16 0 0 1 0 16"/>
+  <path d="M576 16h88m-88 0L448 272M664 16 488 368M664 16l36 72m0 0v32m-92 8h16m76-8 36 72m-112-64 36 72m76-8h16m-92 8v16m92-24 40 80m-132-56 36 72m-152-32 8 16m0 0h136m24 0h80m-344 0-32 64m280-48h8m8-16-8 16m88-16-48 96M584 32h8m-8 0L456 288M592 32 424 368m32-80-32 64m-8-16 8 16m120-64h8m-8 0-40 80m48-80-40 80m-88 0h80m8 0h232"/>
+  <path d="M640 112a16 16 0 0 0 0 16"/>
+  <path d="m640 112 40 80m-40-64 40 80"/>
+  <path d="M680 192a16 16 0 0 1 0 16"/>
+</svg>
