@@ -11,4 +11,4 @@ R&D Engineer — Unmanned Aerial Systems, Embedded Systems & Computer Vision. Gu
 
 ## Contact
 
-[igoutta@protonmail.com](mailto:igoutta@protonmail.com) · [LinkedIn](https://www.linkedin.com/in/igoutta/) · [Full CV, English and Spanish](https://igoutta.github.io/igoutta/)
+[igoutta@protonmail.com](mailto:igoutta@protonmail.com) · [LinkedIn](https://www.linkedin.com/in/igoutta/) · [GitHub](https://github.com/igoutta) · [Full CV, English and Spanish](https://igoutta.github.io/igoutta/)
