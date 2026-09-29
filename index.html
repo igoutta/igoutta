@@ -266,6 +266,7 @@ section{padding-block:clamp(2rem,4vw,3.25rem)}
 .projects{display:grid;gap:1px;background:var(--rule-soft);border:1px solid var(--rule-soft)}
 @media (min-width:52rem){ .projects{grid-template-columns:1fr 1fr} }
 .project{background:var(--raise);padding:1.6rem clamp(1.1rem,2.5vw,1.9rem) 1.75rem}
+@media (min-width:52rem){ .project:first-child{grid-column:1 / -1} }
 .project h3{font-size:1.02rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.7rem}
 .stack{
   font:400 .74rem/1.65 var(--mono);color:var(--accent);
@@ -370,9 +371,9 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
 
     <dl class="readout">
       <div>
-        <dt>4</dt>
-        <dd data-l="en">years building production systems for unmanned aerial vehicles</dd>
-        <dd data-l="es">años desarrollando sistemas en producción para vehículos aéreos no tripulados</dd>
+        <dt><span data-l="en">1.2 s</span><span data-l="es">1,2 s</span></dt>
+        <dd data-l="en">video latency in the camera operator app, down from about 2.5 s</dd>
+        <dd data-l="es">latencia de video en la app de operador de la cámara, antes unos 2,5 s</dd>
       </div>
       <div>
         <dt>93 km</dt>
@@ -416,7 +417,7 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
         <span class="span" data-l="es">Abr 2024 &ndash; Presente</span>
 
         <ul class="duties" data-l="en">
-          <li><b>Sole architect and developer of the operator application</b> for a high-end, military-use surveillance camera (Python, PyQt6): full camera control through the vendor SDK driven by professional joysticks, live video client, configuration and deployment. Rebuilt the video front end on FFmpeg (PyAV), cutting client-side buffering on a 1080p feed served remotely over a satellite link.</li>
+          <li><b>Sole architect and developer of the operator application</b> for a high-end, military-use surveillance camera (Python, PyQt6): full camera control through the vendor SDK driven by professional joysticks, live video client, configuration and deployment. Rebuilt the video front end on FFmpeg (PyAV), bringing video latency down from about 2.5 s to about 1.2 s on a 1080p feed served remotely over a satellite link.</li>
           <li><b>Took a YOLOv8 mineral-detection system from prototype to production on NVIDIA Jetson:</b> reworked real-time scheduling and actuator triggering and converted inference to TensorRT so detection lands inside the actuators' timing window. Also configured a real-time kernel on the Jetson.</li>
           <li><b>Redesigned and rewrote the onboard telemetry service</b> running on Raspberry Pi under embedded GNU/Linux (Python, SurrealDB), prioritising critical parameters over a direct link to the flight controller, with a scalable local store.</li>
           <li>Designed the end-to-end architecture of a satellite-linked UAS control system integrating a high-end surveillance payload.</li>
@@ -428,7 +429,7 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
         </ul>
 
         <ul class="duties" data-l="es">
-          <li><b>Único arquitecto y desarrollador de la aplicación de operador</b> de una cámara de vigilancia de alta gama para uso militar (Python, PyQt6): control completo de la cámara mediante el SDK del fabricante y joysticks profesionales, cliente de video en vivo, configuración y despliegue. Reconstruí el front-end de video sobre FFmpeg (PyAV), reduciendo el buffering del lado del cliente sobre un stream 1080p servido de forma remota por enlace satelital.</li>
+          <li><b>Único arquitecto y desarrollador de la aplicación de operador</b> de una cámara de vigilancia de alta gama para uso militar (Python, PyQt6): control completo de la cámara mediante el SDK del fabricante y joysticks profesionales, cliente de video en vivo, configuración y despliegue. Reconstruí el front-end de video sobre FFmpeg (PyAV) y bajé la latencia del video de unos 2,5&nbsp;s a unos 1,2&nbsp;s en un stream 1080p servido de forma remota por enlace satelital.</li>
           <li><b>Llevé de prototipo a producción sobre NVIDIA Jetson un sistema de detección de recursos minerales con YOLOv8:</b> rediseñé la planificación en tiempo real y el disparo de actuadores y migré la inferencia a TensorRT para que la detección entre dentro de la ventana de tiempo de los actuadores. También configuré un kernel de tiempo real en el Jetson.</li>
           <li><b>Rediseñé y reescribí el servicio de telemetría a bordo</b> sobre Raspberry Pi en GNU/Linux embebido (Python, SurrealDB), priorizando los parámetros críticos en el enlace directo con el controlador de vuelo, con almacenamiento local escalable.</li>
           <li>Definí la arquitectura completa de un sistema de control de UAS con enlace satelital e integración de carga útil de vigilancia de alta gama.</li>
@@ -498,21 +499,21 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
 
     <div class="projects">
       <article class="project">
+        <h3 data-l="en">Camera control &amp; video client for a military-use surveillance camera</h3>
+        <h3 data-l="es">Control de cámara y cliente de video para una cámara de vigilancia de uso militar</h3>
+        <p class="stack" data-l="en">Python · PyQt6 · PyAV (FFmpeg) · vendor SDK · joystick HID · satellite video link</p>
+        <p class="stack" data-l="es">Python · PyQt6 · PyAV (FFmpeg) · SDK del fabricante · joystick HID · enlace de video satelital</p>
+        <p data-l="en">Complete, installable operator application for a high-end military-use surveillance camera, built solo: camera control via the vendor SDK over professional joysticks, live video client, configuration and deployment. Video front end rebuilt on FFmpeg (PyAV), bringing video latency down from about 2.5 s to about 1.2 s on a 1080p feed delivered over a satellite link.</p>
+        <p data-l="es">Aplicación de operador completa e instalable para una cámara de vigilancia de alta gama de uso militar, desarrollada en solitario: control de cámara vía SDK del fabricante con joysticks profesionales, cliente de video en vivo, configuración y despliegue. Front-end de video reconstruido sobre FFmpeg (PyAV), que bajó la latencia del video de unos 2,5&nbsp;s a unos 1,2&nbsp;s en un stream 1080p entregado por enlace satelital.</p>
+      </article>
+
+      <article class="project">
         <h3 data-l="en">Low-latency AI inference pipeline</h3>
         <h3 data-l="es">Pipeline de inferencia de IA de baja latencia</h3>
         <p class="stack" data-l="en">Python · YOLOv8 · TensorRT · CUDA · NVIDIA Jetson · Linux RT kernel · uv</p>
         <p class="stack" data-l="es">Python · YOLOv8 · TensorRT · CUDA · NVIDIA Jetson · kernel RT en Linux · uv</p>
         <p data-l="en">Production inference path for real-time mineral detection on NVIDIA Jetson: TensorRT conversion, real-time kernel configuration and a redesigned real-time scheduling model that drives physical actuators within their timing window.</p>
         <p data-l="es">Ruta de inferencia en producción para detección de minerales en tiempo real sobre NVIDIA Jetson: conversión a TensorRT, configuración de un kernel de tiempo real y rediseño del modelo de planificación en tiempo real que activa los actuadores físicos dentro de su ventana de tiempo.</p>
-      </article>
-
-      <article class="project">
-        <h3 data-l="en">Camera control &amp; video client for a military-use surveillance camera</h3>
-        <h3 data-l="es">Control de cámara y cliente de video para una cámara de vigilancia de uso militar</h3>
-        <p class="stack" data-l="en">Python · PyQt6 · PyAV (FFmpeg) · vendor SDK · joystick HID · satellite video link</p>
-        <p class="stack" data-l="es">Python · PyQt6 · PyAV (FFmpeg) · SDK del fabricante · joystick HID · enlace de video satelital</p>
-        <p data-l="en">Complete operator application for a high-end surveillance camera, built solo: camera control via the vendor SDK over professional joysticks, live video client, configuration and deployment. Video front end rebuilt on FFmpeg (PyAV) to minimise client-side buffering on a 1080p feed delivered over a satellite link.</p>
-        <p data-l="es">Aplicación completa de operador para cámara de vigilancia de alta gama, desarrollada en solitario: control de cámara vía SDK del fabricante con joysticks profesionales, cliente de video en vivo, configuración y despliegue. Front-end de video reconstruido sobre FFmpeg (PyAV) para minimizar el buffering del lado del cliente en un stream 1080p entregado por enlace satelital.</p>
       </article>
 
       <article class="project">
