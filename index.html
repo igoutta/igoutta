@@ -421,7 +421,7 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
           <li><b>Took a YOLOv8 mineral-detection system from prototype to production on NVIDIA Jetson:</b> reworked real-time scheduling and actuator triggering and converted inference to TensorRT so detection lands inside the actuators' timing window. Also configured a real-time kernel on the Jetson.</li>
           <li><b>Redesigned and rewrote the onboard telemetry service</b> running on Raspberry Pi under embedded GNU/Linux (Python, SurrealDB), prioritising critical parameters over a direct link to the flight controller, with a scalable local store.</li>
           <li>Designed the end-to-end architecture of a satellite-linked UAS control system integrating a high-end surveillance payload.</li>
-          <li>Built a flight-log analytics pipeline over 500k+ telemetry records (Polars, Plotly, marimo) quantifying energy consumption per flight phase, with sub-second queries replacing a pandas/Matplotlib/Jupyter workflow.</li>
+          <li>Wrote flight-log analysis scripts (Polars, Plotly, marimo) that measure energy consumption per flight phase over 500k+ telemetry records, replacing a pandas/Matplotlib/Jupyter workflow.</li>
           <li>Adapted ArduPilot control loops to a new 3D-printed flight controller and a new sensor set for a fixed-wing glider, and scripted hexacopter flight logic in Lua.</li>
           <li>Rebranded an open-source UAS control suite for corporate deployment (C++/Qt, Docker, Bash) under full licence compliance.</li>
           <li><b>Pilot in command for fixed-wing VTOL operations:</b> in 2026, 20+ flights at sites above 3,200 m above sea level and about 80 h in the air, most as pilot in command and many as flight supervisor; mainly test flights, about 10% demonstrations. Route planning, calibration and mission configuration.</li>
@@ -433,7 +433,7 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
           <li><b>Llevé de prototipo a producción sobre NVIDIA Jetson un sistema de detección de recursos minerales con YOLOv8:</b> rediseñé la planificación en tiempo real y el disparo de actuadores y migré la inferencia a TensorRT para que la detección entre dentro de la ventana de tiempo de los actuadores. También configuré un kernel de tiempo real en el Jetson.</li>
           <li><b>Rediseñé y reescribí el servicio de telemetría a bordo</b> sobre Raspberry Pi en GNU/Linux embebido (Python, SurrealDB), priorizando los parámetros críticos en el enlace directo con el controlador de vuelo, con almacenamiento local escalable.</li>
           <li>Definí la arquitectura completa de un sistema de control de UAS con enlace satelital e integración de carga útil de vigilancia de alta gama.</li>
-          <li>Construí un pipeline de análisis de registros de vuelo sobre 500&nbsp;000+ registros de telemetría (Polars, Plotly, marimo) que cuantifica el consumo energético por fase de vuelo, con consultas por debajo del segundo, en reemplazo del stack pandas/Matplotlib/Jupyter.</li>
+          <li>Escribí scripts de análisis de registros de vuelo (Polars, Plotly, marimo) que miden el consumo energético por fase de vuelo sobre 500&nbsp;000+ registros de telemetría, en reemplazo del stack pandas/Matplotlib/Jupyter.</li>
           <li>Adapté los lazos de control de ArduPilot a una nueva controladora de vuelo impresa en 3D y a un nuevo conjunto de sensores para un dron planeador de ala fija; programé la lógica de vuelo de un hexacóptero en Lua.</li>
           <li>Realicé el rebranding corporativo de un software de código abierto para control de UAS (C++/Qt, Docker, Bash), garantizando el cumplimiento de las licencias.</li>
           <li><b>Piloto al mando en operaciones con drones VTOL de ala fija:</b> en 2026, al menos 20 vuelos en sitios por encima de 3&nbsp;200 m sobre el nivel del mar y unas 80 h en el aire, la mayoría como piloto al mando y muchos como supervisor de vuelo; sobre todo vuelos de prueba y cerca de un 10&nbsp;% de presentaciones. Planificación de rutas, calibración y configuración de misiones.</li>
@@ -514,14 +514,6 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
         <p class="stack" data-l="es">Python · YOLOv8 · TensorRT · CUDA · NVIDIA Jetson · kernel RT en Linux · uv</p>
         <p data-l="en">Production inference path for real-time mineral detection on NVIDIA Jetson: TensorRT conversion, real-time kernel configuration and a redesigned real-time scheduling model that drives physical actuators within their timing window.</p>
         <p data-l="es">Ruta de inferencia en producción para detección de minerales en tiempo real sobre NVIDIA Jetson: conversión a TensorRT, configuración de un kernel de tiempo real y rediseño del modelo de planificación en tiempo real que activa los actuadores físicos dentro de su ventana de tiempo.</p>
-      </article>
-
-      <article class="project">
-        <h3 data-l="en">Flight-log analytics dashboard</h3>
-        <h3 data-l="es">Panel de análisis de registros de vuelo</h3>
-        <p class="stack">Python · Polars · Plotly · marimo · uv</p>
-        <p data-l="en">Interactive dashboard over 500k+ telemetry records visualising voltage, current and energy consumption across drone flight phases, with sub-second query performance.</p>
-        <p data-l="es">Panel interactivo que procesa 500&nbsp;000+ registros de telemetría para visualizar voltaje, corriente y consumo energético en todas las fases de vuelo, con rendimiento de consulta inferior a un segundo.</p>
       </article>
 
       <article class="project">
