@@ -168,15 +168,16 @@ a{color:inherit}
 /* ---------- hero ---------- */
 .hero{padding-block:clamp(3rem,9vw,6rem) clamp(2rem,4vw,3rem);position:relative}
 /* GA monogram (assets/img/logo.svg, drawn with Svgbob). A mask, so it takes the
-   current --ink and follows the theme button, not only the system setting. */
-.logo{display:none}
+   current --ink and follows the theme button, not only the system setting.
+   Above the name on narrow screens; beside it, on the right, on wide ones. */
+.logo{
+  display:block;width:clamp(9rem,40vw,12rem);aspect-ratio:2/1;margin-bottom:1.5rem;
+  background:var(--ink);
+  -webkit-mask:url("assets/img/logo.svg") center/contain no-repeat;
+  mask:url("assets/img/logo.svg") center/contain no-repeat;
+}
 @media screen and (min-width:72rem){
-  .logo{
-    display:block;position:absolute;top:clamp(3rem,9vw,6rem);right:var(--pad);
-    width:clamp(14rem,24vw,20rem);aspect-ratio:2/1;background:var(--ink);
-    -webkit-mask:url("assets/img/logo.svg") center/contain no-repeat;
-    mask:url("assets/img/logo.svg") center/contain no-repeat;
-  }
+  .logo{position:absolute;top:clamp(3rem,9vw,6rem);right:var(--pad);width:clamp(14rem,24vw,20rem);margin:0}
 }
 .hero h1{
   font-size:clamp(2.7rem,9vw,5.25rem);
@@ -315,7 +316,7 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
 @page{size:A4;margin:14mm 16mm}
 @media print{
   :root{color-scheme:light;--paper:#fff;--raise:#fff;--ink:#000;--ink-2:#333;--rule:#999;--rule-soft:#ccc;--accent:#000}
-  .bar,.skip,footer .colophon,footer a[download]{display:none}
+  .bar,.skip,.logo,footer .colophon,footer a[download]{display:none}
   body{font-size:10.5pt}
   section{padding-block:.6rem}
   .hero{padding-block:0 1rem}
