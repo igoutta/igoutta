@@ -166,7 +166,18 @@ a{color:inherit}
 }
 
 /* ---------- hero ---------- */
-.hero{padding-block:clamp(3rem,9vw,6rem) clamp(2rem,4vw,3rem)}
+.hero{padding-block:clamp(3rem,9vw,6rem) clamp(2rem,4vw,3rem);position:relative}
+/* GA monogram (assets/img/logo.svg, drawn with Svgbob). A mask, so it takes the
+   current --ink and follows the theme button, not only the system setting. */
+.logo{display:none}
+@media screen and (min-width:72rem){
+  .logo{
+    display:block;position:absolute;top:clamp(3rem,9vw,6rem);right:var(--pad);
+    width:clamp(14rem,24vw,20rem);aspect-ratio:2/1;background:var(--ink);
+    -webkit-mask:url("assets/img/logo.svg") center/contain no-repeat;
+    mask:url("assets/img/logo.svg") center/contain no-repeat;
+  }
+}
 .hero h1{
   font-size:clamp(2.7rem,9vw,5.25rem);
   letter-spacing:-.035em;
@@ -341,6 +352,7 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
 
   <!-- ============ HERO ============ -->
   <div class="hero wrap">
+    <span class="logo" aria-hidden="true"></span>
     <h1>Gustavo Alvarado</h1>
 
     <p class="role" data-l="en">R&amp;D Engineer — Unmanned Aerial Systems, Embedded Systems &amp; Computer Vision</p>
@@ -652,8 +664,8 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
     <a data-l="en" href="assets/Gustavo-Alvarado-CV-EN.pdf" download>Download CV (PDF)</a>
     <a data-l="es" href="assets/Gustavo-Alvarado-CV-ES.pdf" download>Descargar CV (PDF)</a>
   </div>
-  <p class="colophon" data-l="en">Built with HTML and CSS. Set in Archivo and IBM Plex. <a href="https://github.com/igoutta/igoutta">Source</a>.</p>
-  <p class="colophon" data-l="es">Hecho con HTML y CSS. Compuesto en Archivo e IBM Plex. <a href="https://github.com/igoutta/igoutta">Código</a>.</p>
+  <p class="colophon" data-l="en">Built with HTML and CSS. Set in Archivo and IBM Plex. GA monogram drawn with <a href="https://ivanceras.github.io/svgbob-editor/">Svgbob</a>. <a href="https://github.com/igoutta/igoutta">Source</a>.</p>
+  <p class="colophon" data-l="es">Hecho con HTML y CSS. Compuesto en Archivo e IBM Plex. Monograma GA dibujado con <a href="https://ivanceras.github.io/svgbob-editor/">Svgbob</a>. <a href="https://github.com/igoutta/igoutta">Código</a>.</p>
 </footer>
 
 <script>
