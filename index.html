@@ -13,7 +13,23 @@
 <meta property="og:url" content="https://igoutta.github.io/igoutta/">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_EC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%2316232b'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='600' fill='%2348b7c7' text-anchor='middle'%3EGA%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+/* language and theme before first paint: ?lang= wins, then the saved choice, then the browser */
+(function () {
+  var root = document.documentElement, lang = null, theme = null;
+  try { lang = new URLSearchParams(location.search).get("lang"); } catch (e) {}
+  if (lang !== "en" && lang !== "es") { try { lang = localStorage.getItem("lang"); } catch (e) {} }
+  if (lang !== "en" && lang !== "es") {
+    lang = (navigator.language || "").toLowerCase().indexOf("es") === 0 ? "es" : "en";
+  }
+  root.setAttribute("data-lang", lang);
+  root.setAttribute("lang", lang);
+  try { theme = localStorage.getItem("theme"); } catch (e) {}
+  if (theme === "light" || theme === "dark") root.setAttribute("data-theme", theme);
+})();
+</script>
 <style>
 /* ---------- fonts: self-hosted, SIL OFL (assets/fonts/OFL.txt) ---------- */
 @font-face{font-family:"Archivo";src:url("assets/fonts/archivo-latin-var.woff2") format("woff2");font-weight:500 700;font-style:normal;font-display:swap}
@@ -38,15 +54,20 @@
   --measure:68ch;
   color-scheme:light dark;
 }
-@media (prefers-color-scheme:dark){
+:root[data-theme="light"]{color-scheme:light}
+/* dark tokens only on screen: printing always uses the light, ink-on-paper set */
+@media screen and (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --paper:#0e1519; --raise:#151f25; --ink:#dce5e9; --ink-2:#8fa0a9;
     --rule:#27343b; --rule-soft:#1d272c; --accent:#48b7c7; --focus:#48b7c7;
   }
 }
-:root[data-theme="dark"]{
-  --paper:#0e1519; --raise:#151f25; --ink:#dce5e9; --ink-2:#8fa0a9;
-  --rule:#27343b; --rule-soft:#1d272c; --accent:#48b7c7; --focus:#48b7c7;
+@media screen{
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --paper:#0e1519; --raise:#151f25; --ink:#dce5e9; --ink-2:#8fa0a9;
+    --rule:#27343b; --rule-soft:#1d272c; --accent:#48b7c7; --focus:#48b7c7;
+  }
 }
 
 /* ---------- base ---------- */
@@ -98,12 +119,16 @@ a{color:inherit}
 }
 .mark span{color:var(--ink-2);font-weight:500}
 
-.seg{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+/* no overflow:hidden here: it would clip the buttons' focus outline */
+.seg{display:flex;border:1px solid var(--rule);border-radius:2px}
 .seg button{
   font:500 .72rem/1 var(--mono);letter-spacing:.02em;
   background:transparent;color:var(--ink-2);border:0;cursor:pointer;
   padding:.45rem .55rem;transition:color .15s,background .15s;
 }
+.seg button:first-child{border-radius:1px 0 0 1px}
+.seg button:last-child{border-radius:0 1px 1px 0}
+.seg button:focus-visible{position:relative;z-index:1}
 .seg button+button{border-left:1px solid var(--rule)}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .seg button:hover[aria-pressed="false"]{color:var(--ink)}
@@ -275,13 +300,15 @@ footer a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--r
 footer a:hover{color:var(--accent);border-color:var(--accent)}
 
 /* ---------- print ---------- */
+@page{size:A4;margin:14mm 16mm}
 @media print{
-  :root{--paper:#fff;--raise:#fff;--ink:#000;--ink-2:#333;--rule:#999;--rule-soft:#ccc;--accent:#000}
-  .bar,.skip,footer .colophon{display:none}
+  :root{color-scheme:light;--paper:#fff;--raise:#fff;--ink:#000;--ink-2:#333;--rule:#999;--rule-soft:#ccc;--accent:#000}
+  .bar,.skip,footer .colophon,footer a[download]{display:none}
   body{font-size:10.5pt}
   section{padding-block:.6rem}
   .hero{padding-block:0 1rem}
-  .log>li,.project,.entry{break-inside:avoid}
+  .duties li,.project,.entry,.readout,.spec>div{break-inside:avoid}
+  h2,h3,.sec-head,.org,.log .span{break-after:avoid}
   .projects{grid-template-columns:1fr 1fr}
 }
 </style>
@@ -296,8 +323,8 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
     <a class="mark" href="#main">Gustavo Alvarado</a>
 
     <div class="seg" role="group" aria-label="Language / Idioma">
-      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+      <button type="button" data-set-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="es" lang="es" aria-label="Español" aria-pressed="false">ES</button>
     </div>
 
     <button type="button" class="icon-btn" id="theme-btn" aria-label="Switch theme">
@@ -625,7 +652,7 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
     <a data-l="en" href="assets/Gustavo-Alvarado-CV-EN.pdf" download>Download CV (PDF)</a>
     <a data-l="es" href="assets/Gustavo-Alvarado-CV-ES.pdf" download>Descargar CV (PDF)</a>
   </div>
-  <p class="colophon" data-l="en">Built with plain HTML and CSS. Set in Archivo and IBM Plex. <a href="https://github.com/igoutta/igoutta">Source</a>.</p>
+  <p class="colophon" data-l="en">Built with HTML and CSS. Set in Archivo and IBM Plex. <a href="https://github.com/igoutta/igoutta">Source</a>.</p>
   <p class="colophon" data-l="es">Hecho con HTML y CSS. Compuesto en Archivo e IBM Plex. <a href="https://github.com/igoutta/igoutta">Código</a>.</p>
 </footer>
 
@@ -633,12 +660,26 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
 (function () {
   var root = document.documentElement;
 
-  /* ---- theme ---- */
-  var storedTheme = null;
-  try { storedTheme = localStorage.getItem("theme"); } catch (e) {}
-  if (storedTheme === "light" || storedTheme === "dark") root.setAttribute("data-theme", storedTheme);
+  /* strings outside the page body, one set per language */
+  var TEXT = {
+    en: {
+      title: "Gustavo Alvarado — R&D Engineer",
+      description: "Mechatronics engineer (ESPOL) with 4 years of experience building production systems for unmanned aerial vehicles: real-time computer-vision pipelines, low-latency Qt desktop applications, and embedded Linux telemetry services.",
+      theme: "Switch theme"
+    },
+    es: {
+      title: "Gustavo Alvarado — Ingeniero de I+D",
+      description: "Ingeniero mecatrónico (ESPOL) con 4 años de experiencia desarrollando sistemas en producción para vehículos aéreos no tripulados: pipelines de visión artificial en tiempo real, aplicaciones de escritorio de baja latencia en Qt y servicios de telemetría sobre Linux embebido.",
+      theme: "Cambiar tema"
+    }
+  };
 
-  document.getElementById("theme-btn").addEventListener("click", function () {
+  var themeBtn = document.getElementById("theme-btn");
+  var description = document.querySelector('meta[name="description"]');
+  var buttons = document.querySelectorAll("[data-set-lang]");
+
+  /* ---- theme (initial value is set in <head>) ---- */
+  themeBtn.addEventListener("click", function () {
     var dark = root.getAttribute("data-theme") === "dark" ||
       (!root.hasAttribute("data-theme") && matchMedia("(prefers-color-scheme: dark)").matches);
     var next = dark ? "light" : "dark";
@@ -646,31 +687,36 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
-  /* ---- language ---- */
-  var buttons = document.querySelectorAll("[data-set-lang]");
-
-  function setLang(lang, persist) {
-    root.setAttribute("data-lang", lang);
-    root.setAttribute("lang", lang);
-    document.title = lang === "es"
-      ? "Gustavo Alvarado — Ingeniero de I+D"
-      : "Gustavo Alvarado — R&D Engineer";
+  /* ---- language (initial value is set in <head>; this only syncs and switches) ---- */
+  function sync(lang) {
+    var t = TEXT[lang];
+    document.title = t.title;
+    if (description) description.setAttribute("content", t.description);
+    themeBtn.setAttribute("aria-label", t.theme);
     buttons.forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.dataset.setLang === lang));
     });
-    if (persist) { try { localStorage.setItem("lang", lang); } catch (e) {} }
   }
 
-  var storedLang = null;
-  try { storedLang = localStorage.getItem("lang"); } catch (e) {}
-  if (storedLang === "en" || storedLang === "es") {
-    setLang(storedLang, false);
-  } else if ((navigator.language || "").toLowerCase().indexOf("es") === 0) {
-    setLang("es", false);
+  function setLang(lang) {
+    root.setAttribute("data-lang", lang);
+    root.setAttribute("lang", lang);
+    sync(lang);
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+    /* keep a shared ?lang= link in step with the choice, so a reload does not undo it */
+    if (/[?&]lang=/.test(location.search)) {
+      try {
+        var url = new URL(location.href);
+        url.searchParams.set("lang", lang);
+        history.replaceState(null, "", url);
+      } catch (e) {}
+    }
   }
+
+  sync(root.getAttribute("data-lang") === "es" ? "es" : "en");
 
   buttons.forEach(function (b) {
-    b.addEventListener("click", function () { setLang(b.dataset.setLang, true); });
+    b.addEventListener("click", function () { setLang(b.dataset.setLang); });
   });
 })();
 </script>
