@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><path d="M0 0h800v400H0z" style="stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;stroke:none;fill:#fff"/><rect width="16" height="16" x="364" y="184" rx="0" style="stroke:#000;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;fill:#fff"/><text x="282" y="76" style="white-space:pre;fill:#000;font-family:Iosevka Fixed,monospace;font-size:14px">.........</text><text x="290" y="92" style="white-space:pre;fill:#000;font-family:Iosevka Fixed,monospace;font-size:14px">.........</text><path d="M96 16h232M96 16 84 40m68-24 8 8m0 0h112m8-8-8 8m56-8 48 96M84 40v16m0 0L72 80m-8 0h8m-8 0-48 96m-8 0h8m-8 0-8 16m0 0 8 16M152 80h40m8-8-8 8m8-8h24m0 0 8 8m0 0h40m-120 0-24 48m144-48 16 32m0 0h72m8-16-8 16m-240 16h8m176-16 8 16m0 0h56m8-16-8 16m-248 0-4 8m0 0v16m0 0-20 40m0 0 24 48m0 0h8m0 0 12 24m0 0v16m0 0 12 24m0 0h72m0 0 8 8M164 88h76m-76 0-12 24m96-32-8 8m-104 24h16M48 144h16m-16 0-32 64m48-64-40 80m8-48 8 16M8 208h8m8 16 64 128m0 0 8 16m0 0h96m0 0 8 8m0 0h104m-24-216h120m0 0 16 32m0 0-24 48m-8 0h8m-8 0-20 40m0 0v16m0 0-36 72m-16 0h16m-16 0-8 8m-56-200h24m8-16-8 16m-24 0-8 16m0 0 8 16m0 0h24m0 0 8 16m0 0h16m0 0 8 16m0 0h16m-16 0-20 40m0 0h8m0 0-16 32m-44 0h44m28-136h32m8-16-8 16m-32 0-8 16m0 0 8 16m0 0h16m0 0 8 16m0 0-8 16" style="stroke:#000;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter"/><path d="M88 208a16 16 0 0 0 0 16" style="stroke:#000;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;fill:#fff"/><path d="m88 208 40 80m-40-64 40 80" style="stroke:#000;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter"/><path d="M128 288a16 16 0 0 1 0 16" style="stroke:#000;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;fill:#fff"/><path d="M576 16h88m-88 0L448 272M664 16 488 368M664 16l36 72m0 0v32m-92 8h16m76-8 36 72m-112-64 36 72m76-8h16m-92 8v16m92-24 40 80m-132-56 36 72m-152-32 8 16m0 0h136m24 0h80m-344 0-32 64m280-48h8m8-16-8 16m88-16-48 96M584 32h8m-8 0L456 288M592 32 424 368m32-80-32 64m-8-16 8 16m120-64h8m-8 0-40 80m48-80-40 80m-88 0h80m8 0h232" style="stroke:#000;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter"/><path d="M640 112a16 16 0 0 0 0 16" style="stroke:#000;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;fill:#fff"/><path d="m640 112 40 80m-40-64 40 80" style="stroke:#000;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter"/><path d="M680 192a16 16 0 0 1 0 16" style="stroke:#000;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;fill:#fff"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <!-- Monograma "GA". Dibujado en ASCII en el editor de Svgbob
+       (https://ivanceras.github.io/svgbob-editor/) y convertido a SVG con Svgbob
+       (https://github.com/ivanceras/svgbob). Fuente ASCII: assets/art/SVGBOB-GA.
+       Fondo transparente; el trazo usa la tinta del sitio y cambia con el tema. -->
+  <title>GA</title>
+  <style>
+    path, rect { fill: none; stroke: #16232b; stroke-width: 2; stroke-linecap: round; stroke-linejoin: miter; }
+    text { fill: #16232b; font: 14px "Iosevka Fixed", ui-monospace, monospace; white-space: pre; }
+    @media (prefers-color-scheme: dark) {
+      path, rect { stroke: #dce5e9; }
+      text { fill: #dce5e9; }
+    }
+  </style>
+  <rect x="364" y="184" width="16" height="16"/>
+  <text x="282" y="76">.........</text>
+  <text x="290" y="92">.........</text>
+  <path d="M96 16h232M96 16 84 40m68-24 8 8m0 0h112m8-8-8 8m56-8 48 96M84 40v16m0 0L72 80m-8 0h8m-8 0-48 96m-8 0h8m-8 0-8 16m0 0 8 16M152 80h40m8-8-8 8m8-8h24m0 0 8 8m0 0h40m-120 0-24 48m144-48 16 32m0 0h72m8-16-8 16m-240 16h8m176-16 8 16m0 0h56m8-16-8 16m-248 0-4 8m0 0v16m0 0-20 40m0 0 24 48m0 0h8m0 0 12 24m0 0v16m0 0 12 24m0 0h72m0 0 8 8M164 88h76m-76 0-12 24m96-32-8 8m-104 24h16M48 144h16m-16 0-32 64m48-64-40 80m8-48 8 16M8 208h8m8 16 64 128m0 0 8 16m0 0h96m0 0 8 8m0 0h104m-24-216h120m0 0 16 32m0 0-24 48m-8 0h8m-8 0-20 40m0 0v16m0 0-36 72m-16 0h16m-16 0-8 8m-56-200h24m8-16-8 16m-24 0-8 16m0 0 8 16m0 0h24m0 0 8 16m0 0h16m0 0 8 16m0 0h16m-16 0-20 40m0 0h8m0 0-16 32m-44 0h44m28-136h32m8-16-8 16m-32 0-8 16m0 0 8 16m0 0h16m0 0 8 16m0 0-8 16"/>
+  <path d="M88 208a16 16 0 0 0 0 16"/>
+  <path d="m88 208 40 80m-40-64 40 80"/>
+  <path d="M128 288a16 16 0 0 1 0 16"/>
+  <path d="M576 16h88m-88 0L448 272M664 16 488 368M664 16l36 72m0 0v32m-92 8h16m76-8 36 72m-112-64 36 72m76-8h16m-92 8v16m92-24 40 80m-132-56 36 72m-152-32 8 16m0 0h136m24 0h80m-344 0-32 64m280-48h8m8-16-8 16m88-16-48 96M584 32h8m-8 0L456 288M592 32 424 368m32-80-32 64m-8-16 8 16m120-64h8m-8 0-40 80m48-80-40 80m-88 0h80m8 0h232"/>
+  <path d="M640 112a16 16 0 0 0 0 16"/>
+  <path d="m640 112 40 80m-40-64 40 80"/>
+  <path d="M680 192a16 16 0 0 1 0 16"/>
+</svg>
