@@ -7,18 +7,26 @@
 
 I'm Gustavo Alvarado, an Ecuadorian mechatronics engineer (ESPOL). I build software for unmanned aircraft: operator apps, real-time computer vision and embedded Linux.
 
-Currently R&D engineer, drone specialist and software developer at [Robiotec](https://robiotec.ec/).
+Currently R&D engineer at [Robiotec](https://robiotec.ec/): drone specialist and software engineer/architect.
 
-- 🎥 Built solo the operator app for a military-use surveillance camera: video latency from about 2.5 s to about 1.2 s over a satellite link.
+- 🎥 Built solo the operator app for a military-use surveillance camera: video latency from about 2.5 s to about 0.5 s over a satellite link.
 - 🛩️ 20+ fixed-wing VTOL flights in 2026 at sites above 3,200 m ASL, most as pilot in command.
-- 👁️ Took a YOLOv8 detection system to production on NVIDIA Jetson with TensorRT.
+- 👁️ Took a YOLOv8 detection system to production on NVIDIA Jetson: code optimisation, uv migration and actuator triggering, with the TensorRT integration co-developed with a teammate.
 - 📡 Enabled a 93 km unsupervised point-to-point VTOL mission.
 
 ## Technologies
 
 | Languages | Embedded & UAS | Vision & AI | Apps & tools |
 |:-:|:-:|:-:|:-:|
-| ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white) | ![Linux](https://img.shields.io/badge/Linux-333333?style=for-the-badge&logo=linux&logoColor=FCC624) ![NVIDIA Jetson](https://img.shields.io/badge/NVIDIA_Jetson-76B900?style=for-the-badge&logo=nvidia&logoColor=white) ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white) ![ArduPilot](https://img.shields.io/badge/ArduPilot-0B4F6C?style=for-the-badge) ![MAVLink](https://img.shields.io/badge/MAVLink-1B3A57?style=for-the-badge) | ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white) ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white) ![YOLOv8](https://img.shields.io/badge/YOLOv8-111F68?style=for-the-badge&logo=ultralytics&logoColor=white) ![TensorRT](https://img.shields.io/badge/TensorRT-76B900?style=for-the-badge&logo=nvidia&logoColor=white) | ![Qt](https://img.shields.io/badge/Qt-41CD52?style=for-the-badge&logo=qt&logoColor=white) ![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=for-the-badge&logo=ffmpeg&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) |
+| ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) ![Lua](https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white) | ![Linux](https://img.shields.io/badge/Linux-333333?style=for-the-badge&logo=linux&logoColor=FCC624) ![NVIDIA Jetson](https://img.shields.io/badge/NVIDIA_Jetson-76B900?style=for-the-badge&logo=nvidia&logoColor=white) ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-A22846?style=for-the-badge&logo=raspberrypi&logoColor=white) ![ArduPilot](https://img.shields.io/badge/ArduPilot-0B4F6C?style=for-the-badge) ![MAVLink](https://img.shields.io/badge/MAVLink-1B3A57?style=for-the-badge) | ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white) ![YOLOv8](https://img.shields.io/badge/YOLOv8-111F68?style=for-the-badge&logo=ultralytics&logoColor=white) ![TensorRT](https://img.shields.io/badge/TensorRT-76B900?style=for-the-badge&logo=nvidia&logoColor=white) | ![Qt](https://img.shields.io/badge/Qt-41CD52?style=for-the-badge&logo=qt&logoColor=white) ![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=for-the-badge&logo=ffmpeg&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) |
+
+## Open source
+
+- [rc-boat-controller-esp32](https://github.com/igoutta/rc-boat-controller-esp32): ESP32 firmware that reads SBUS from an RC receiver and drives a boat's motor ESCs in real time, with constant-speed control.
+- [flight_logs_analyzer](https://github.com/igoutta/flight_logs_analyzer): flight-log analysis built with marimo, Polars and Plotly Express.
+- [opencv-cuda-ros-jetson](https://github.com/igoutta/opencv-cuda-ros-jetson): script to build OpenCV with CUDA on the NVIDIA Jetson AGX Orin, ROS bridge compatible.
+- [Nested-Virtualization-Proxmox](https://github.com/igoutta/Nested-Virtualization-Proxmox): guide, in Spanish, to running a nested Proxmox VE hypervisor inside Windows 10.
+- [pkgbuilds](https://github.com/igoutta/pkgbuilds): AUR package build contributions.
 
 ## Contact
 

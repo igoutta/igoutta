@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gustavo Alvarado — R&amp;D Engineer</title>
-<meta name="description" content="Mechatronics engineer (ESPOL) with 4 years of experience building production systems for unmanned aerial vehicles: real-time computer-vision pipelines, low-latency Qt desktop applications, and embedded Linux telemetry services.">
+<meta name="description" content="Mechatronics engineer (ESPOL) with 4 years in UAS R&amp;D (2.5 as an engineer), building production systems for unmanned aerial vehicles: real-time computer-vision pipelines, low-latency Qt desktop applications, and embedded Linux telemetry services.">
 <meta name="author" content="Gustavo Alvarado">
 <link rel="canonical" href="https://igoutta.github.io/igoutta/">
 <meta property="og:title" content="Gustavo Alvarado — R&amp;D Engineer">
-<meta property="og:description" content="Mechatronics engineer (ESPOL) with 4 years of experience building production systems for unmanned aerial vehicles: real-time computer-vision pipelines, low-latency Qt desktop applications, and embedded Linux telemetry services.">
+<meta property="og:description" content="Mechatronics engineer (ESPOL) with 4 years in UAS R&amp;D (2.5 as an engineer), building production systems for unmanned aerial vehicles: real-time computer-vision pipelines, low-latency Qt desktop applications, and embedded Linux telemetry services.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://igoutta.github.io/igoutta/">
 <meta property="og:locale" content="en_US">
@@ -360,8 +360,8 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
     <p class="role" data-l="en">R&amp;D Engineer — Unmanned Aerial Systems, Embedded Systems &amp; Computer Vision</p>
     <p class="role" data-l="es">Ingeniero de I+D en sistemas aéreos no tripulados, sistemas embebidos y visión artificial</p>
 
-    <p class="summary" data-l="en">Mechatronics engineer (ESPOL) with 4 years of experience building production systems for unmanned aerial vehicles: real-time computer-vision pipelines, low-latency Qt desktop applications, and embedded Linux telemetry services. Comfortable owning a system end to end — architecture, implementation, and deployment onto constrained hardware. Hands-on UAS field experience and a remote-pilot certificate endorsed by DGAC.</p>
-    <p class="summary" data-l="es">Ingeniero mecatrónico (ESPOL) con 4 años de experiencia desarrollando sistemas en producción para vehículos aéreos no tripulados: pipelines de visión artificial en tiempo real, aplicaciones de escritorio de baja latencia en Qt y servicios de telemetría sobre Linux embebido. Trabajo el sistema completo: arquitectura, implementación y despliegue en hardware limitado. Experiencia práctica de campo en UAS y certificado de piloto a distancia avalado por la DGAC.</p>
+    <p class="summary" data-l="en">Mechatronics engineer (ESPOL) with 4 years in UAS R&amp;D (2.5 as an engineer), building production systems for unmanned aerial vehicles: real-time computer-vision pipelines, low-latency Qt desktop applications, and embedded Linux telemetry services. Comfortable owning a system end to end — architecture, implementation, and deployment onto constrained hardware. Hands-on UAS field experience and a remote-pilot certificate endorsed by DGAC.</p>
+    <p class="summary" data-l="es">Ingeniero mecatrónico (ESPOL) con 4 años en I+D de UAS (2,5 como ingeniero), desarrollando sistemas en producción para vehículos aéreos no tripulados: pipelines de visión artificial en tiempo real, aplicaciones de escritorio de baja latencia en Qt y servicios de telemetría sobre Linux embebido. Trabajo el sistema completo: arquitectura, implementación y despliegue en hardware limitado. Experiencia práctica de campo en UAS y certificado de piloto a distancia avalado por la DGAC.</p>
 
     <div class="contact">
       <span class="where">Guayaquil, Ecuador</span>
@@ -372,7 +372,7 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
 
     <dl class="readout">
       <div>
-        <dt><span data-l="en">1.2 s</span><span data-l="es">1,2 s</span></dt>
+        <dt><span data-l="en">0.5 s</span><span data-l="es">0,5 s</span></dt>
         <dd data-l="en">video latency in the camera operator app, down from about 2.5 s</dd>
         <dd data-l="es">latencia de video en la app de operador de la cámara, antes unos 2,5 s</dd>
       </div>
@@ -412,31 +412,33 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
 
       <!-- role 1 -->
       <li data-now>
-        <h3 data-l="en">R&amp;D Engineer — Drone Specialist &amp; Software Developer</h3>
-        <h3 data-l="es">Ingeniero de I+D — Especialista en drones y desarrollador de software</h3>
+        <h3 data-l="en">R&amp;D Engineer — Drone Specialist &amp; Software Engineer/Architect</h3>
+        <h3 data-l="es">Ingeniero de I+D — Especialista en drones e ingeniero/arquitecto de software</h3>
         <span class="span" data-l="en">Apr 2024 &ndash; Present</span>
         <span class="span" data-l="es">Abr 2024 &ndash; Presente</span>
 
         <ul class="duties" data-l="en">
-          <li><b>Sole architect and developer of the operator application</b> for a high-end, military-use surveillance camera (Python, PyQt6): full camera control through the vendor SDK driven by professional joysticks, live video client, configuration and deployment. Rebuilt the video front end on FFmpeg (PyAV), bringing video latency down from about 2.5 s to about 1.2 s on a 1080p feed served remotely over a satellite link.</li>
-          <li><b>Took a YOLOv8 mineral-detection system from prototype to production on NVIDIA Jetson:</b> reworked real-time scheduling and actuator triggering and converted inference to TensorRT so detection lands inside the actuators' timing window. Also configured a real-time kernel on the Jetson.</li>
+          <li><b>Sole architect and developer of the operator application</b> for a high-end, military-use surveillance camera (Python, PyQt6): full camera control through the vendor SDK driven by professional joysticks, live video client, configuration and deployment. Rebuilt the video front end on FFmpeg (PyAV), then reworked the backend, bringing video latency down from about 2.5 s to about 0.5 s on a 1080p feed served remotely over a satellite link, now measured automatically from in-stream SEI timestamps.</li>
+          <li><b>Took a YOLOv8 mineral-detection system from prototype to production on NVIDIA Jetson:</b> optimised and migrated the codebase to a uv-managed project, wrote the actuator-triggering script, and co-developed the TensorRT inference integration with a teammate, so detection lands inside the actuators' timing window.</li>
           <li><b>Redesigned and rewrote the onboard telemetry service</b> running on Raspberry Pi under embedded GNU/Linux (Python, SurrealDB), prioritising critical parameters over a direct link to the flight controller, with a scalable local store.</li>
           <li>Designed the end-to-end architecture of a satellite-linked UAS control system integrating a high-end surveillance payload.</li>
           <li>Wrote flight-log analysis scripts (Polars, Plotly, marimo) that measure energy consumption per flight phase over 500k+ telemetry records, replacing a pandas/Matplotlib/Jupyter workflow.</li>
           <li>Adapted ArduPilot control loops to a new 3D-printed flight controller and a new sensor set for a fixed-wing glider, and scripted hexacopter flight logic in Lua.</li>
-          <li>Rebranded an open-source UAS control suite for corporate deployment (C++/Qt, Docker, Bash) under full licence compliance.</li>
+          <li>Rebranded an open-source UAS control suite for corporate deployment (C++/Qt, Docker, Bash) under full licence compliance, and reworked ArduPilot's Dockerfiles to build UAV Log Viewer and QGroundControl on Linux.</li>
+          <li>Fixed and used the install script that provisions ROS, CUDA and OpenCV on a Jetson.</li>
           <li><b>Pilot in command for fixed-wing VTOL operations:</b> in 2026, 20+ flights at sites above 3,200 m above sea level and about 80 h in the air, most as pilot in command and many as flight supervisor; mainly test flights, about 10% demonstrations. Route planning, calibration and mission configuration.</li>
           <li>Maintained the 3D-printing equipment and designed mounts and work accessories in Autodesk Fusion.</li>
         </ul>
 
         <ul class="duties" data-l="es">
-          <li><b>Único arquitecto y desarrollador de la aplicación de operador</b> de una cámara de vigilancia de alta gama para uso militar (Python, PyQt6): control completo de la cámara mediante el SDK del fabricante y joysticks profesionales, cliente de video en vivo, configuración y despliegue. Reconstruí el front-end de video sobre FFmpeg (PyAV) y bajé la latencia del video de unos 2,5&nbsp;s a unos 1,2&nbsp;s en un stream 1080p servido de forma remota por enlace satelital.</li>
-          <li><b>Llevé de prototipo a producción sobre NVIDIA Jetson un sistema de detección de recursos minerales con YOLOv8:</b> rediseñé la planificación en tiempo real y el disparo de actuadores y migré la inferencia a TensorRT para que la detección entre dentro de la ventana de tiempo de los actuadores. También configuré un kernel de tiempo real en el Jetson.</li>
+          <li><b>Único arquitecto y desarrollador de la aplicación de operador</b> de una cámara de vigilancia de alta gama para uso militar (Python, PyQt6): control completo de la cámara mediante el SDK del fabricante y joysticks profesionales, cliente de video en vivo, configuración y despliegue. Reconstruí el front-end de video sobre FFmpeg (PyAV) y rehíce el backend, con lo que bajé la latencia del video de unos 2,5&nbsp;s a unos 0,5&nbsp;s en un stream 1080p servido de forma remota por enlace satelital, ahora medida de forma automática con marcas de tiempo SEI del stream.</li>
+          <li><b>Llevé de prototipo a producción sobre NVIDIA Jetson un sistema de detección de recursos minerales con YOLOv8:</b> optimicé y migré el código a un proyecto gestionado con uv, escribí el script de activación de actuadores y co-desarrollé con un compañero la integración de inferencia con TensorRT, para que la detección entre dentro de la ventana de tiempo de los actuadores.</li>
           <li><b>Rediseñé y reescribí el servicio de telemetría a bordo</b> sobre Raspberry Pi en GNU/Linux embebido (Python, SurrealDB), priorizando los parámetros críticos en el enlace directo con el controlador de vuelo, con almacenamiento local escalable.</li>
           <li>Definí la arquitectura completa de un sistema de control de UAS con enlace satelital e integración de carga útil de vigilancia de alta gama.</li>
           <li>Escribí scripts de análisis de registros de vuelo (Polars, Plotly, marimo) que miden el consumo energético por fase de vuelo sobre 500&nbsp;000+ registros de telemetría, en reemplazo del stack pandas/Matplotlib/Jupyter.</li>
           <li>Adapté los lazos de control de ArduPilot a una nueva controladora de vuelo impresa en 3D y a un nuevo conjunto de sensores para un dron planeador de ala fija; programé la lógica de vuelo de un hexacóptero en Lua.</li>
-          <li>Realicé el rebranding corporativo de un software de código abierto para control de UAS (C++/Qt, Docker, Bash), garantizando el cumplimiento de las licencias.</li>
+          <li>Realicé el rebranding corporativo de un software de código abierto para control de UAS (C++/Qt, Docker, Bash), garantizando el cumplimiento de las licencias, y modifiqué los Dockerfiles de ArduPilot para compilar UAV Log Viewer y QGroundControl.</li>
+          <li>Corregí y usé el script que instala ROS, CUDA y OpenCV en un Jetson.</li>
           <li><b>Piloto al mando en operaciones con drones VTOL de ala fija:</b> en 2026, al menos 20 vuelos en sitios por encima de 3&nbsp;200 m sobre el nivel del mar y unas 80 h en el aire, la mayoría como piloto al mando y muchos como supervisor de vuelo; sobre todo vuelos de prueba y cerca de un 10&nbsp;% de presentaciones. Planificación de rutas, calibración y configuración de misiones.</li>
           <li>Mantenimiento del equipo de impresión 3D y diseño de soportes y accesorios de trabajo en Autodesk Fusion.</li>
         </ul>
@@ -453,16 +455,16 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
           <li><b>Enabled a 93 km unsupervised point-to-point fixed-wing VTOL mission:</b> GNSS/GPS integration, radio-link revision and geolocation-software updates, validated in flight, payload and comms testing.</li>
           <li>Wrote the Python integration layer between the MAVLink protocol and a partner company's power-supply system.</li>
           <li>Built the backend of a power-monitoring system for industrial mills over Modbus TCP (Node-RED/JavaScript on Linux).</li>
-          <li>Researched and developed the communication system between radio control and propulsion for an aquatic drone (Arduino C).</li>
+          <li>Wrote the ESP32 firmware (C++) for an aquatic drone prototype: reads SBUS from the RC receiver and drives the motor ESCs in real time with constant-speed control.</li>
           <li>Ran CFD simulations (Autodesk Inventor) on a tandem-wing drone airframe.</li>
           <li>Installed and supported Linux environments for computer-vision projects.</li>
         </ul>
 
         <ul class="duties" data-l="es">
-          <li><b>Habilité una misión no supervisada de 93 km punto a punto con dron VTOL de ala fija:</b> integración GNSS-GPS, revisión del enlace de radio y actualización del software de geolocalización, con resultados positivos en pruebas de vuelo, carga y comunicación.</li>
+          <li><b>Habilité una misión no supervisada de 93 km punto a punto con dron VTOL de ala fija:</b> integración GNSS-GPS, revisión del enlace de radio y actualización del software de geolocalización, validada en vuelo.</li>
           <li>Desarrollé en Python la capa de comunicación entre el protocolo MAVLink y el sistema de suministro eléctrico de una empresa aliada.</li>
           <li>Construí el back-end de un sistema de monitoreo energético para molinos industriales sobre Modbus TCP (Node-RED/JavaScript en Linux).</li>
-          <li>Investigación y desarrollo del sistema de comunicación entre radiocontrol y propulsión para un dron acuático (Arduino C).</li>
+          <li>Programé en C++ el firmware ESP32 de un dron acuático: lee SBUS del receptor RC y controla los ESC de los motores en tiempo real con velocidad constante.</li>
           <li>Ejecuté simulaciones CFD en Autodesk Inventor sobre un diseño de alas en tándem para dron.</li>
           <li>Instalé y di soporte a entornos Linux para proyectos de visión artificial.</li>
         </ul>
@@ -504,17 +506,24 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
         <h3 data-l="es">Control de cámara y cliente de video para una cámara de vigilancia de uso militar</h3>
         <p class="stack" data-l="en">Python · PyQt6 · PyAV (FFmpeg) · vendor SDK · joystick HID · satellite video link</p>
         <p class="stack" data-l="es">Python · PyQt6 · PyAV (FFmpeg) · SDK del fabricante · joystick HID · enlace de video satelital</p>
-        <p data-l="en">Complete, installable operator application for a high-end military-use surveillance camera, built solo: camera control via the vendor SDK over professional joysticks, live video client, configuration and deployment. Video front end rebuilt on FFmpeg (PyAV), bringing video latency down from about 2.5 s to about 1.2 s on a 1080p feed delivered over a satellite link.</p>
-        <p data-l="es">Aplicación de operador completa e instalable para una cámara de vigilancia de alta gama de uso militar, desarrollada en solitario: control de cámara vía SDK del fabricante con joysticks profesionales, cliente de video en vivo, configuración y despliegue. Front-end de video reconstruido sobre FFmpeg (PyAV), que bajó la latencia del video de unos 2,5&nbsp;s a unos 1,2&nbsp;s en un stream 1080p entregado por enlace satelital.</p>
+        <p data-l="en">Complete, installable operator application for a high-end military-use surveillance camera, built solo: camera control via the vendor SDK over professional joysticks, live video client, configuration and deployment. Video latency cut from about 2.5 s to about 0.5 s on a 1080p feed delivered over a satellite link, measured automatically from in-stream SEI timestamps.</p>
+        <p data-l="es">Aplicación de operador completa e instalable para una cámara de vigilancia de alta gama de uso militar, desarrollada en solitario: control de cámara vía SDK del fabricante con joysticks profesionales, cliente de video en vivo, configuración y despliegue. Latencia reducida de unos 2,5&nbsp;s a unos 0,5&nbsp;s en un stream 1080p por enlace satelital, medida con marcas de tiempo SEI.</p>
       </article>
 
       <article class="project">
-        <h3 data-l="en">Low-latency AI inference pipeline</h3>
-        <h3 data-l="es">Pipeline de inferencia de IA de baja latencia</h3>
-        <p class="stack" data-l="en">Python · YOLOv8 · TensorRT · CUDA · NVIDIA Jetson · Linux RT kernel · uv</p>
-        <p class="stack" data-l="es">Python · YOLOv8 · TensorRT · CUDA · NVIDIA Jetson · kernel RT en Linux · uv</p>
-        <p data-l="en">Production inference path for real-time mineral detection on NVIDIA Jetson: TensorRT conversion, real-time kernel configuration and a redesigned real-time scheduling model that drives physical actuators within their timing window.</p>
-        <p data-l="es">Ruta de inferencia en producción para detección de minerales en tiempo real sobre NVIDIA Jetson: conversión a TensorRT, configuración de un kernel de tiempo real y rediseño del modelo de planificación en tiempo real que activa los actuadores físicos dentro de su ventana de tiempo.</p>
+        <h3 data-l="en">Edge AI inference service</h3>
+        <h3 data-l="es">Servicio de inferencia de IA en el borde</h3>
+        <p class="stack">Python · YOLOv8 · TensorRT · NVIDIA Jetson · uv</p>
+        <p data-l="en">Production inference path for real-time mineral detection on NVIDIA Jetson: codebase optimisation, migration to a uv-managed project and the actuator-triggering script, with the TensorRT integration co-developed with a teammate; detection lands within the actuators' timing window.</p>
+        <p data-l="es">Inferencia en producción para detección de minerales en tiempo real sobre NVIDIA Jetson: optimización del código, migración a uv y script de activación de actuadores; integración de TensorRT co-desarrollada con un compañero.</p>
+      </article>
+
+      <article class="project">
+        <h3 data-l="en">RC controller for a boat prototype</h3>
+        <h3 data-l="es">Control RC para un prototipo de bote</h3>
+        <p class="stack">C++ · ESP32 · SBUS · ESC motor control</p>
+        <p data-l="en">Firmware that reads SBUS from an RC receiver and drives the boat's motor ESCs in real time with constant-speed control. <a href="https://github.com/igoutta/rc-boat-controller-esp32" rel="noopener">github.com/igoutta/rc-boat-controller-esp32</a></p>
+        <p data-l="es">Firmware que lee SBUS de un receptor RC y controla los ESC del bote en tiempo real. <a href="https://github.com/igoutta/rc-boat-controller-esp32" rel="noopener">github.com/igoutta/rc-boat-controller-esp32</a></p>
       </article>
 
       <article class="project">
@@ -541,12 +550,8 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
         <dd data-l="es">Python, C/C++ (embebido y Qt), JavaScript, Lua, SQL, Bash</dd>
       </div>
       <div>
-        <dt data-l="en">Machine learning and computer vision</dt><dt data-l="es">Aprendizaje automático y visión artificial</dt>
-        <dd>PyTorch, Ultralytics YOLOv8, TensorRT, CUDA, OpenCV, Pylon (Basler)</dd>
-      </div>
-      <div>
-        <dt data-l="en">Robotics</dt><dt data-l="es">Robótica</dt>
-        <dd>ROS / ROS 2, NVIDIA Jetson AGX Orin, MAVLink</dd>
+        <dt data-l="en">Computer vision and video</dt><dt data-l="es">Visión artificial y video</dt>
+        <dd>PyAV / FFmpeg, OpenCV, Ultralytics YOLOv8 (deployment), TensorRT, Pylon (Basler)</dd>
       </div>
       <div>
         <dt data-l="en">Data</dt><dt data-l="es">Datos</dt>
@@ -558,8 +563,8 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
       </div>
       <div>
         <dt data-l="en">Embedded systems</dt><dt data-l="es">Sistemas embebidos</dt>
-        <dd data-l="en">GNU/Linux (Ubuntu, Arch, NixOS), low-latency kernels, Raspberry Pi, Orange Pi, ESP32 / ESP-IDF, Teensy, Arduino, MAVLink, Modbus TCP, Node-RED</dd>
-        <dd data-l="es">GNU/Linux (Ubuntu, Arch, NixOS), kernels de baja latencia, Raspberry Pi, Orange Pi, ESP32 / ESP-IDF, Teensy, Arduino, MAVLink, Modbus TCP, Node-RED</dd>
+        <dd data-l="en">GNU/Linux (Arch — primary, Ubuntu, NixOS), NVIDIA Jetson AGX Orin, Raspberry Pi, Orange Pi, ESP32 / ESP-IDF, Arduino, MAVLink, Modbus TCP, Node-RED</dd>
+        <dd data-l="es">GNU/Linux (Arch — principal, Ubuntu, NixOS), NVIDIA Jetson AGX Orin, Raspberry Pi, Orange Pi, ESP32 / ESP-IDF, Arduino, MAVLink, Modbus TCP, Node-RED</dd>
       </div>
       <div>
         <dt data-l="en">Data stores</dt><dt data-l="es">Bases de datos</dt>
@@ -567,12 +572,13 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
       </div>
       <div>
         <dt data-l="en">Tooling and infrastructure</dt><dt data-l="es">Herramientas e infraestructura</dt>
-        <dd>Git, Docker, Podman, Proxmox, uv</dd>
+        <dd data-l="en">Git, uv, pytest, mypy, ruff, ty, Docker, Podman, Proxmox, AI coding assistants (Claude, DeepSeek)</dd>
+        <dd data-l="es">Git, uv, pytest, mypy, ruff, ty, Docker, Podman, Proxmox, asistentes de código con IA (Claude, DeepSeek)</dd>
       </div>
       <div>
         <dt>UAS</dt>
-        <dd data-l="en">ArduPilot, Betaflight, mission planning, fixed-wing VTOL &amp; multirotor operations</dd>
-        <dd data-l="es">ArduPilot, Betaflight, planificación de misiones, operación de VTOL de ala fija y multirrotores</dd>
+        <dd data-l="en">ArduPilot, mission planning, fixed-wing VTOL &amp; multirotor operations</dd>
+        <dd data-l="es">ArduPilot, planificación de misiones, operación de VTOL de ala fija y multirrotores</dd>
       </div>
       <div>
         <dt data-l="en">CAD and simulation</dt><dt data-l="es">CAD y simulación</dt>
@@ -632,8 +638,8 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
         </div>
         <div class="pair">
           <dt data-l="en">English</dt><dt data-l="es">Inglés</dt>
-          <dd data-l="en">B2, professional working proficiency</dd>
-          <dd data-l="es">B2, dominio profesional del idioma</dd>
+          <dd data-l="en">B2, professional proficiency; regular technical email and chat with a Chinese vendor's representative</dd>
+          <dd data-l="es">B2, dominio profesional; correo y chat técnico habitual con un proveedor chino</dd>
         </div>
       </dl>
     </section>
@@ -670,12 +676,12 @@ footer a:hover{color:var(--accent);border-color:var(--accent)}
   var TEXT = {
     en: {
       title: "Gustavo Alvarado — R&D Engineer",
-      description: "Mechatronics engineer (ESPOL) with 4 years of experience building production systems for unmanned aerial vehicles: real-time computer-vision pipelines, low-latency Qt desktop applications, and embedded Linux telemetry services.",
+      description: "Mechatronics engineer (ESPOL) with 4 years in UAS R&D (2.5 as an engineer), building production systems for unmanned aerial vehicles: real-time computer-vision pipelines, low-latency Qt desktop applications, and embedded Linux telemetry services.",
       theme: "Switch theme"
     },
     es: {
       title: "Gustavo Alvarado — Ingeniero de I+D",
-      description: "Ingeniero mecatrónico (ESPOL) con 4 años de experiencia desarrollando sistemas en producción para vehículos aéreos no tripulados: pipelines de visión artificial en tiempo real, aplicaciones de escritorio de baja latencia en Qt y servicios de telemetría sobre Linux embebido.",
+      description: "Ingeniero mecatrónico (ESPOL) con 4 años en I+D de UAS (2,5 como ingeniero), desarrollando sistemas en producción para vehículos aéreos no tripulados: pipelines de visión artificial en tiempo real, aplicaciones de escritorio de baja latencia en Qt y servicios de telemetría sobre Linux embebido.",
       theme: "Cambiar tema"
     }
   };
